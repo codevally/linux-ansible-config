@@ -1,5 +1,5 @@
 ---
-- name: Ubuntu servers
+- name: Set up Ubuntu servers
   hosts: all
   sudo: True
   roles:

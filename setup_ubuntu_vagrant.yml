@@ -1,5 +1,6 @@
 ---
-- hosts: ubuntu_vagrant
+- name: Set up Ubuntu Vagrant
+  hosts: ubuntu_vagrant
   sudo: True
   roles:
     - ubuntu_common

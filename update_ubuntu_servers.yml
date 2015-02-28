@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: Update Ubuntu servers 
+  hosts: all
   sudo: True
   tasks:
     - name: update all packages
