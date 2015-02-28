@@ -1,5 +1,7 @@
 ---
   - name: ensure default locale present
     locale_gen: name={{ default_locale }} state=present
-  - name: ensure default locale is set
-    debconf: name=locales question='locales/default_environment_locale' value={{ default_locale }} vtype='select'
+  - name: ensure default locale
+    template: src=locale.j2 dest=/etc/default/locale backup=yes owner=root group=root mode=0644
+    notify:
+      - set locale

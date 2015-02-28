@@ -1,3 +1,5 @@
 ---
   - name: set timezone
     command: dpkg-reconfigure -f noninteractive tzdata
+  - name: set locale
+    command: update-locale
