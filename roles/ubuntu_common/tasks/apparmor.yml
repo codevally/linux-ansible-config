@@ -1,4 +1,0 @@
----
-  - name: install AppArmor
-    apt: name=apparmor-profiles state=present
-  
