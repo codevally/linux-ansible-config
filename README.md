@@ -11,11 +11,10 @@ To set up Ansible on an OS X workstation:
 
 ## Usage ##
 
-Ansible provides four commands:
+Ansible provides three main commands:
 
 * *ansible-playbook* - to execute all of an Ansible playbook on the specified systems
 * *ansible* - to execute an individual shell command or Ansible module on the specified systems
-* *ansible-galaxy* - to work with roles shared on the public [Ansible Galaxy](https://galaxy.ansible.com/) web site.
 * *ansible-vault* - to encrypt or decrypt any individual YAML file that Ansible uses.
 
 Both *ansible-playbook* and *ansible* require you to specify the group of systems that the commands will run on, and use *-i* to specify the inventory file or directory that lists the specified systems. The *all* group is a built-in group that automatically includes all of the systems in the specified inventory.
@@ -48,6 +47,12 @@ Add *--syntax-check* to test the Ansible playbook without running it:
 Add *--check* to simulate the effect without making changes to the target systems:
 
     ansible-playbook --check -K -i inventory my_playbook.yml
+
+If the playbook requires data from a file that has been encrypted with *ansible-vault*, add  *--ask-vault-pass*:
+
+    ansible-playbook --ask-vault-pass -K -i inventory my_playbook.yml
+
+Enter the password for the encrypted files when prompted.
 
 ### Creating a New Linode with Ansible ###
 
