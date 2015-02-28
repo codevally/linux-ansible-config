@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: Ubuntu servers
+  hosts: all
   sudo: True
   roles:
     - ubuntu_common
