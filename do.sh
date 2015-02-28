@@ -22,9 +22,9 @@ case $1 in
     ansible-playbook -i inventory/localhost create_linode.yml
   ;;
   setup-sandbox)
-    ansible-playbook -K -i inventory/sandbox setup_ubuntu_server.yml
+    ansible-playbook -K -i inventory/sandbox setup_ubuntu_servers.yml
   ;;
   workstation)
-    ansible-playbook -i inventory/localhost setup_osx_workstation.yml
+    ansible-playbook -i inventory/localhost setup_osx_workstations.yml
   ;;
 esac
