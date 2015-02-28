@@ -2,26 +2,27 @@
 
 An experimental configuration for [Ansible](http://www.ansible.com).
 
-## Usage
+## Set Up ##
 
 To set up Ansible on an OS X workstation:
 
     ./do.sh setup-admin
     cp ./ansible.cfg.example ./ansible.cfg
 
-To create a new Linode using Ansible and the Linode API:
+## Usage ##
 
-    ./do.sh create-linode
-
-Ansible provides three commands:
+Ansible provides four commands:
 
 * *ansible-playbook* - to execute all of an Ansible playbook on the specified systems
 * *ansible* - to execute an individual shell command or Ansible module on the specified systems
-* *ansible-galaxy* - to work with roles shared on the public [Ansible Galaxy]() web site.
+* *ansible-galaxy* - to work with roles shared on the public [Ansible Galaxy](https://galaxy.ansible.com/) web site.
+* *ansible-vault* - to encrypt or decrypt any individual YAML file that Ansible uses.
 
 Both *ansible-playbook* and *ansible* require you to specify the group of systems that the commands will run on, and use *-i* to specify the inventory file or directory that lists the specified systems. The *all* group is a built-in group that automatically includes all of the systems in the specified inventory.
 
     ansible GROUP -i INVENTORY OPTIONS
+
+If a command fails on any system in the group, Ansible automatically create a *retry* file that lists all of the systems where the command failed.
 
 For example, use the *-a* option to execute a shell command:
 
@@ -48,12 +49,18 @@ Add *--check* to simulate the effect without making changes to the target system
 
     ansible-playbook --check -K -i inventory my_playbook.yml
 
-## Directory structure
+### Creating a New Linode with Ansible ###
+
+To create a new Linode using Ansible and the Linode API:
+
+    ./do.sh create-linode
+
+## Directory structure ##
 
 For convenience, the Ansible playbooks are in the root of this project.
 
-* ansible.cfg - Configuration file for Ansible
-* examples/ - Various templates and examples
+* ansible.cfg.example - Example configuration file for Ansible
+* examples/ - Various other templates and examples
 * filter_plugins/ - Custom filter plugins
 * host_vars/ - Variables for individual host systems
 * inventory/ - Lists of host systems
@@ -61,6 +68,16 @@ For convenience, the Ansible playbooks are in the root of this project.
 * library/ - Custom Ansible modules
 * roles/ - Custom roles used by the Ansible playbooks
 * scripts/ - Utility scripts
+
+## Passwords ##
+
+You must specify the SHA512 hashed version of a user password when you set it through Ansible. By default, Mac OS X does not generate the same hashes as Linux, so use this command to generate a valid hash:
+
+    ./do.sh hash-password
+
+Enter the password that you would like to use at the prompt.
+
+Use the [Vault](http://docs.ansible.com/playbooks_vault.html) feature to encrypt any YAML file that stores password variables.
 
 ## Contact ##
 

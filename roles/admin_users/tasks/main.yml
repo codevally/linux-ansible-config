@@ -1,0 +1,5 @@
+---
+  - include: sudoers_group.yml
+  - include: current_admins.yml
+  - include: current_ssh_keys.yml
+  - include: former_admins.yml

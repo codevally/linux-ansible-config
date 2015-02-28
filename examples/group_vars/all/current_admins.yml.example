@@ -1,0 +1,20 @@
+---
+  current_admins:
+    alice:
+      account_name: "alice"
+      full_name: "Alice Evans"
+      uid: 2001
+      password_sha512: "PASSWORD-HASH"
+      ssh_rsa_pubkey: "SSH-PUBLIC-KEY"
+    bob:
+      account_name: "bob"
+      full_name: "Bob Robbins"
+      uid: 2002
+      password_sha512: "PASSWORD-HASH"
+      ssh_rsa_pubkey: "SSH-PUBLIC-KEY"
+    charles:
+      account_name: "charles"
+      full_name: "Charles Hall"
+      uid: 2003
+      password_sha512: "PASSWORD-HASH"
+      ssh_rsa_pubkey: "SSH-PUBLIC-KEY"

@@ -1,6 +1,7 @@
 ---
   - name: ensure user account for Ansible
-    user: name={{ ansible_ssh_user }} comment="Administrative account" uid=1001 shell=/bin/bash state=present
+    user: name={{ ansible_ssh_user }} comment="Administrative account" uid={{ ansible_user_uid }} shell=/bin/bash password={{ ansible_user_password_sha512 }} state=present
+    no_log: True
   - name: ensure SSH key for Ansible user account
     authorized_key: user={{ ansible_ssh_user }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}" state=present
   - name: enable sudo for Ansible user account

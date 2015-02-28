@@ -6,6 +6,7 @@ case $1 in
     sudo easy_install pip
     pip install --user linode-python
     pip install --user pycurl
+    pip install --user passlib
   ;;
   setup-repo)
     mkdir -p filter_plugins group_vars host_vars inventory library playbooks roles
@@ -13,6 +14,9 @@ case $1 in
   ;;
   playbook)
     ansible-playbook -K -i inventory $2
+  ;;
+  hash-password)
+    python -c "from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.encrypt(getpass.getpass())"
   ;;
   create-linode)
     ansible-playbook -i inventory/localhost create_linode.yml

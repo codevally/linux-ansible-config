@@ -1,0 +1,3 @@
+---
+  - name: admins | ensure group for sudo is present
+    group: name=sudo state=present

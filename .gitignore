@@ -4,6 +4,9 @@ thumbs.db
 # Ansible
 ansible.cfg
 inventory/sandbox
+**/current_admins.yml
+**/former_admins.yml
+**/secrets.yml
 
 # Azure
 scripts/azure
