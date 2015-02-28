@@ -4,4 +4,4 @@
   roles:
     - osx_workstation
   vars:
-    - home: /Users/{{ ansible_user_id }}
+    - local_user_id: "{{ ansible_user_id }}"

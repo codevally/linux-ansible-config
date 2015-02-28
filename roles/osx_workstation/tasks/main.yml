@@ -1,18 +1,18 @@
 ---
 
 - name: ensure user SSH directory exists
-  file: name={{ item }} state=directory owner={{ ansible_user_id }} group=staff mode=0700
+  file: name={{ item }} state=directory owner={{ local_user_id }} group=staff mode=0700
   with_items:
-    - '{{ home }}/.ssh'
+    - '/Users/{{ local_user_id }}/.ssh'
 
 - name: ensure user code directories exist
   file: name={{ item }} state=directory
   with_items:
-    - '{{ home }}/Documents/code'
-    - '{{ home }}/Documents/code/bin'
-    - '{{ home }}/Documents/code/doc'
-    - '{{ home }}/Documents/code/pkg'
-    - '{{ home }}/Documents/code/src'
+    - '/Users/{{ local_user_id }}/Documents/code'
+    - '/Users/{{ local_user_id }}/Documents/code/bin'
+    - '/Users/{{ local_user_id }}/Documents/code/doc'
+    - '/Users/{{ local_user_id }}/Documents/code/pkg'
+    - '/Users/{{ local_user_id }}/Documents/code/src'
 
 - include: desktop_apps.yml
 - include: cli_tools.yml

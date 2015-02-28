@@ -1,7 +1,7 @@
 #!/bin/sh
 
 case $1 in
-  setup-admin)
+  setup-ansible)
     brew update && brew install ansible
     sudo easy_install pip
     pip install --user linode-python
@@ -24,7 +24,7 @@ case $1 in
   setup-sandbox)
     ansible-playbook -K -i inventory/sandbox setup_ubuntu_servers.yml
   ;;
-  workstation)
+  setup-workstation)
     ansible-playbook -i inventory/localhost setup_osx_workstations.yml
   ;;
 esac
