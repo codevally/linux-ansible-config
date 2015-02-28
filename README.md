@@ -7,6 +7,7 @@ An experimental configuration for [Ansible](http://www.ansible.com).
 To set up Ansible on an OS X workstation:
 
     ./do.sh setup-admin
+    cp ./ansible.cfg.example ./ansible.cfg
 
 To create a new Linode using Ansible and the Linode API:
 
