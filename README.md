@@ -13,6 +13,33 @@ To create a new Linode using Ansible and the Linode API:
 
     ./do.sh create-linode
 
+Ansible provides two commands:
+
+* *ansible-playbook* - to execute all of an Ansible playbook on the specified systems
+* *ansible* - to execute an individual shell command or Ansible module on the specified systems 
+
+In each case, use *-i* to specify the inventory file or directory that lists the specified systems.
+
+Use *-a* to execute a shell command:
+
+    ansible all -i inventory -a /usr/bin/uptime
+
+Use *-m* to execute an Ansible module:
+
+    ansible all -i inventory -m ping
+
+To run a playbook:
+
+    ansible-playbook -K -i inventory my_playbook.yml    
+
+Add *--syntax-check* to test the Ansible playbook without running it:
+
+    ansible-playbook --syntax-check -K -i inventory my_playbook.yml    
+
+Add *--check* to simulate the effect without making changes to the target systems:
+
+    ansible-playbook --check -K -i inventory my_playbook.yml    
+
 ## Directory structure
 
 For convenience, the Ansible playbooks are in the root of this project.
