@@ -1,0 +1,6 @@
+---
+- hosts: all
+  sudo: True
+  tasks:
+    - name: update all packages
+      apt: update_cache=yes upgrade=safe
