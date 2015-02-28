@@ -1,0 +1,19 @@
+---
+
+- name: ensure user SSH directory exists
+  file: name={{ item }} state=directory owner={{ ansible_user_id }} group=staff mode=0700
+  with_items:
+    - '{{ home }}/.ssh'
+
+- name: ensure user code directories exist
+  file: name={{ item }} state=directory
+  with_items:
+    - '{{ home }}/Documents/code'
+    - '{{ home }}/Documents/code/bin'
+    - '{{ home }}/Documents/code/doc'
+    - '{{ home }}/Documents/code/pkg'
+    - '{{ home }}/Documents/code/src'
+
+- include: desktop_apps.yml
+- include: cli_tools.yml
+- include: mysql_server.yml

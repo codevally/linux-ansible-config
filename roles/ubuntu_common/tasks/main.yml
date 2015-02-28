@@ -1,0 +1,7 @@
+---
+  - include: ansible_dependencies.yml
+  - include: locale.yml
+  - include: apparmor.yml
+  - include: firewall.yml
+  - include: utilities.yml
+  - include: compiler_packages.yml

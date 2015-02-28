@@ -1,0 +1,8 @@
+---
+  - name: ensure Imagemagick
+    apt: name={{ item }} state=present
+    with_items:
+      - ghostscript
+      - imagemagick
+      - libmagickcore-dev
+      - libmagickwand-dev

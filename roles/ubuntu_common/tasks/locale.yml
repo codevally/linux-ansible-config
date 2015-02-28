@@ -1,0 +1,5 @@
+---
+  - name: ensure default locale present
+    locale_gen: name={{ default_locale }} state=present
+  - name: ensure default locale is set
+    debconf: name=locales question='locales/default_environment_locale' value={{ default_locale }} vtype='select'

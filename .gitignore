@@ -1,0 +1,12 @@
+.DS_Store
+thumbs.db
+
+# Ansible
+ansible.cfg
+inventory/sandbox
+
+# Azure
+scripts/azure
+
+# Vagrant
+.vagrant

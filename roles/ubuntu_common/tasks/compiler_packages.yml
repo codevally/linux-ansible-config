@@ -1,0 +1,8 @@
+---
+  - name: ensure GCC toolchain
+    apt: name={{ item }} state=present
+    with_items:
+      - build-essential
+      - automake
+      - libtool
+      - bison

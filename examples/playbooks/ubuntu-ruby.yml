@@ -1,0 +1,40 @@
+---
+- name: ubuntu-base
+  sudo: True
+  hosts: os_ubuntu
+  tasks:
+    - name: refresh Apt index
+      apt: update-cache=yes
+    - name: ensure Git
+      apt: name=git state=present
+    - name: ensure Curl
+      apt: name=curl state=present
+    - name: ensure Node.js 
+      apt: name=nodejs state=present
+    - name: ensure GCC toolchain
+      apt: name={{ item }} state=present
+      with_items:
+        - build-essential
+        - automake 
+        - libtool
+        - bison 
+    - name: ensure Ruby dependencies
+      apt: name={{ item }} state=present
+      with_items:
+        - libcurl4-openssl-dev
+        - libyaml-dev
+        - libsqlite3-dev
+        - sqlite3
+        - libxml2-dev
+        - libxslt1-dev
+        - libgdbm-dev
+        - libncurses5-dev
+        - libffi-dev
+    - name: ensure Imagemagick
+      apt: name={{ item }} state=present
+      with_items:
+        - ghostscript
+        - imagemagick
+        - libmagickcore-dev
+        - libmagickwand-dev
+

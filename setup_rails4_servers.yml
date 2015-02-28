@@ -1,0 +1,6 @@
+---
+- name: Set up Rails prerequisites
+  hosts: rails4-servers
+  roles:
+    - ubuntu-common
+    - rails4-servers

@@ -1,0 +1,10 @@
+---
+  - name: ensure command-line utilities
+    homebrew: name={{ item }} state=present
+    with_items:
+      - ansible
+      - git
+      - nmap
+      - node
+  - name: ensure Ant for Android Development
+    homebrew: name=ant state=present

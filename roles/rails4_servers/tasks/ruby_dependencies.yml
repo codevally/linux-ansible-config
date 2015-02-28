@@ -1,0 +1,13 @@
+---
+  - name: ensure Ruby dependencies
+    apt: name={{ item }} state=present
+    with_items:
+      - libcurl4-openssl-dev
+      - libyaml-dev
+      - libsqlite3-dev
+      - sqlite3
+      - libxml2-dev
+      - libxslt1-dev
+      - libgdbm-dev
+      - libncurses5-dev
+      - libffi-dev

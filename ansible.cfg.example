@@ -1,0 +1,5 @@
+[defaults]
+
+# SSH settings
+remote_user = ansibler
+remote_port = 22

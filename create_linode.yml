@@ -1,0 +1,18 @@
+---
+- name: Create new Linode
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  tasks:
+    - local_action:
+        module: linode
+        api_key: "{{ lookup('env', 'API_KEY_LINODE') }}"
+        name: new-srv
+        plan: 1
+        datacenter: 7
+        distribution: 124
+        ssh_pub_key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+        swap: 768
+        wait: yes
+        wait_timeout: 1800
+        state: present

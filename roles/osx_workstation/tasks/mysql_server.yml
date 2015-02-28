@@ -1,0 +1,3 @@
+---
+  - name: ensure MySQL server
+    homebrew: name=mysql state=present

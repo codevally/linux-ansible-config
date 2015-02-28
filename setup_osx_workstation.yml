@@ -1,0 +1,7 @@
+---
+- name: Setup Mac OS X workstation
+  hosts: all
+  roles:
+    - osx_workstation
+  vars:
+    - home: /Users/{{ ansible_user_id }}

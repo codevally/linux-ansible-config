@@ -1,0 +1,14 @@
+---
+  - name: ensure required desktop applications
+    homebrew_cask: name={{ item }} state=present
+    with_items:
+      - atom
+      - box-sync
+      - calibre
+      - firefox
+      - google-chrome
+      - libreoffice
+      - sequel-pro
+      - skype
+      - spotify
+      - vagrant

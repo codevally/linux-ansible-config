@@ -1,0 +1,5 @@
+---
+- hosts: ubuntu_vagrant
+  sudo: True
+  roles:
+    - ubuntu_common

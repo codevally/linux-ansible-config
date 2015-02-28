@@ -1,0 +1,5 @@
+[linodes:children]
+sandbox
+
+[sandbox]
+myserver.mydomain.example ansible_ssh_user=deploy ansible_ssh_port=54321
