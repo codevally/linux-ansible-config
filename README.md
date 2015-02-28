@@ -13,32 +13,40 @@ To create a new Linode using Ansible and the Linode API:
 
     ./do.sh create-linode
 
-Ansible provides two commands:
+Ansible provides three commands:
 
 * *ansible-playbook* - to execute all of an Ansible playbook on the specified systems
-* *ansible* - to execute an individual shell command or Ansible module on the specified systems 
+* *ansible* - to execute an individual shell command or Ansible module on the specified systems
+* *ansible-galaxy* - to work with roles shared on the public [Ansible Galaxy]() web site.
 
-In each case, use *-i* to specify the inventory file or directory that lists the specified systems.
+Both *ansible-playbook* and *ansible* require you to specify the group of systems that the commands will run on, and use *-i* to specify the inventory file or directory that lists the specified systems. The *all* group is a built-in group that automatically includes all of the systems in the specified inventory.
 
-Use *-a* to execute a shell command:
+    ansible GROUP -i INVENTORY OPTIONS
+
+For example, use the *-a* option to execute a shell command:
 
     ansible all -i inventory -a /usr/bin/uptime
 
 Use *-m* to execute an Ansible module:
 
     ansible all -i inventory -m ping
+    ansible all -i inventory -m setup
+
+The *ping* module checks that Ansible can connect to the remote system. The *setup* module returns information about the remote system.
 
 To run a playbook:
 
-    ansible-playbook -K -i inventory my_playbook.yml    
+    ansible-playbook -K -i inventory my_playbook.yml
+
+The *-K* option means that Ansible will prompt you for the password of your account on the remote system in order to use *sudo*.
 
 Add *--syntax-check* to test the Ansible playbook without running it:
 
-    ansible-playbook --syntax-check -K -i inventory my_playbook.yml    
+    ansible-playbook --syntax-check -K -i inventory my_playbook.yml
 
 Add *--check* to simulate the effect without making changes to the target systems:
 
-    ansible-playbook --check -K -i inventory my_playbook.yml    
+    ansible-playbook --check -K -i inventory my_playbook.yml
 
 ## Directory structure
 
@@ -69,10 +77,9 @@ you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
 <http://www.apache.org/licenses/LICENSE-2.0>
- 
+
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-
