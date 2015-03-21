@@ -5,6 +5,7 @@ case $1 in
     brew update && brew install ansible
     sudo easy_install pip
     pip install --user linode-python
+    pip install --user dopy
     pip install --user pycurl
     pip install --user passlib
   ;;
