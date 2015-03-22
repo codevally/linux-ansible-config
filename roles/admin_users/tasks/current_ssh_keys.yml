@@ -2,4 +2,4 @@
   - name: admins | ensure current SSH keys
     authorized_key: user={{ item.value.account_name }} key="{{ item.value.ssh_rsa_pubkey }}" state=present
     no_log: True
-    with_dict: current_admins
+    with_dict: current_admin_accounts

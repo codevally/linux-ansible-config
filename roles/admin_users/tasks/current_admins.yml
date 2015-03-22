@@ -1,0 +1,5 @@
+---
+  - name: admins | ensure current user accounts
+    user: name={{ item.value.account_name }} comment="{{ item.value.full_name }}" uid={{ item.value.uid }} shell=/bin/bash password={{ item.value.password_sha512 }} groups="sudo" state=present
+    no_log: True
+    with_dict: current_admin_accounts
