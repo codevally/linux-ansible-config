@@ -9,3 +9,4 @@
   vars:
     - default_locale: en_GB.UTF-8
     - system_timezone: Europe/London
+    - custom_ssh_port: 54321
