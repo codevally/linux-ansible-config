@@ -54,11 +54,15 @@ If the playbook requires data from a file that has been encrypted with *ansible-
 
 Enter the password for the encrypted files when prompted.
 
-### Creating a New Linode with Ansible ###
+### Creating a New Server with Ansible ###
 
 To create a new Linode using Ansible and the Linode API:
 
-    ./do.sh create-linode
+    ./do.sh create-linode LINODE_NAME
+
+To create a new server on Digital Ocean using Ansible and the Digital Ocean version 1 API:
+
+    ./do.sh create-droplet DROPLET_NAME
 
 ## Directory structure ##
 

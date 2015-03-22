@@ -7,7 +7,7 @@
     - local_action:
         module: linode
         api_key: "{{ lookup('env', 'API_KEY_LINODE') }}"
-        name: new-srv
+        name: {{ linode_name }}
         plan: 1
         datacenter: 7
         distribution: 124

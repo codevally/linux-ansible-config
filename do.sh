@@ -19,8 +19,11 @@ case $1 in
   hash-password)
     python -c "from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.encrypt(getpass.getpass())"
   ;;
+  create-droplet)
+    ansible-playbook -i inventory/localhost create_droplet.yml --extra-vars "droplet_name=$2"
+  ;;
   create-linode)
-    ansible-playbook -i inventory/localhost create_linode.yml
+    ansible-playbook -i inventory/localhost create_linode.yml --extra-vars "linode_name=$2"
   ;;
   setup-sandbox)
     ansible-playbook -K -i inventory/sandbox setup_ubuntu_servers.yml
