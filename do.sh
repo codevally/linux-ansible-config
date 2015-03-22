@@ -25,8 +25,11 @@ case $1 in
   create-linode)
     ansible-playbook -i inventory/localhost create_linode.yml --extra-vars "linode_name=$2"
   ;;
-  setup-sandbox)
-    ansible-playbook -K -i inventory/sandbox setup_ubuntu_servers.yml
+  provision)
+    ansible-playbook -i inventory/$2 setup_ubuntu_servers.yml
+  ;;
+  run)
+    ansible-playbook -K -i inventory/$2 setup_ubuntu_servers.yml
   ;;
   setup-workstation)
     ansible-playbook -i inventory/localhost setup_osx_workstations.yml

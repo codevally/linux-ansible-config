@@ -1,5 +1,5 @@
 ---
   - name: allow SSH through firewall
-    ufw: rule=allow port={{ ansible_ssh_port }} proto=tcp
+    ufw: rule=allow port={{ custom_ssh_port }} proto=tcp
   - name: enable ufw firewall
     ufw: state=enabled policy=deny
