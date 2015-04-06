@@ -3,3 +3,4 @@
   - include: ruby_dependencies.yml
   - include: imagemagick.yml
   - include: firewall_allow_https.yml
+  - include: passenger.yml
