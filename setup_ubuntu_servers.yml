@@ -1,7 +1,7 @@
 ---
 - name: Set up Ubuntu servers
   hosts: all
-  #sudo: True
+  sudo: True
   roles:
     - ubuntu_common
     - admin_users
