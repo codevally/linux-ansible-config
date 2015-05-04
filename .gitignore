@@ -3,6 +3,8 @@ thumbs.db
 
 # Ansible
 ansible.cfg
+inventory/aws
+inventory/digital_ocean
 inventory/sandbox
 **/current_admin_accounts.yml
 **/former_admin_accounts.yml
