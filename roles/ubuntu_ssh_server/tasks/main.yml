@@ -1,8 +1,8 @@
 ---
   - name: ensure SSH package is present
     apt: name=openssh-server state=present
-  - name: ensure SSH service is running
-    service: name=ssh state=started
+  - name: ensure SSH service is enabled and running
+    service: name=ssh state=started enabled=yes
   - name: set SSH service configuration
     template: src=sshd_config.j2 dest=/etc/ssh/sshd_config backup=yes owner=root group=root mode=0644
     notify:
