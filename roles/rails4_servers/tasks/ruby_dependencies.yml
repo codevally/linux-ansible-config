@@ -4,6 +4,7 @@
     with_items:
       - libcurl4-openssl-dev
       - libyaml-dev
+      - libreadline-dev
       - libsqlite3-dev
       - sqlite3
       - libxml2-dev

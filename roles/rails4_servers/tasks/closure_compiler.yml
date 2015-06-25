@@ -1,0 +1,3 @@
+---
+  - name: ensure Google Closure Compiler
+    apt: name=closure-compiler state=present
