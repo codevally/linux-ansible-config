@@ -56,14 +56,6 @@ Enter the password for the encrypted files when prompted.
 
 ### Creating a New Server with Ansible ###
 
-To create a new Linode using Ansible and the Linode API:
-
-    ./do.sh create-linode LINODE_NAME
-
-To create a new server on Digital Ocean using Ansible and the Digital Ocean version 1 API:
-
-    ./do.sh create-droplet DROPLET_NAME
-
 To create a new server on Amazon Web Services using Ansible and the EC2 API:
 
     ./do.sh create-ec2 SECURITY_GROUP_NAME SUBNET_ID KEYPAIR_NAME
@@ -71,6 +63,16 @@ To create a new server on Amazon Web Services using Ansible and the EC2 API:
 For example:
 
     ./do.sh create-ec2 sg-c7bf09dc subnet-4c754137 my-keypair
+
+This relies on the presence of environment variables for the AWS access key and AWS secret key, e.g. AWS_ACCESS_KEY_ID and AWS_SECRET_KEY.
+
+To create a new Linode using Ansible and the Linode API:
+
+    ./do.sh create-linode LINODE_NAME
+
+To create a new server on Digital Ocean using Ansible and the Digital Ocean version 1 API:
+
+    ./do.sh create-droplet DROPLET_NAME
 
 ## Directory structure ##
 
