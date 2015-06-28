@@ -32,10 +32,10 @@ case $1 in
     ansible-playbook -i inventory/localhost create_linode.yml --extra-vars "linode_name=$2"
   ;;
   provision)
-    ansible-playbook -i inventory/$2 setup_ubuntu_servers.yml
+    ansible-playbook -i inventory/$2 setup_rails4_servers.yml --extra-vars "mysql_root_pass=$3"
   ;;
   run)
-    ansible-playbook -K -i inventory/$2 setup_ubuntu_servers.yml
+    ansible-playbook -K -i inventory/$2 setup_rails4_servers.yml
   ;;
   setup-workstation)
     ansible-playbook -i inventory/localhost setup_osx_workstations.yml
