@@ -1,0 +1,18 @@
+---
+  - name: Create new EC2 instance
+    hosts: localhost
+    connection: local
+    gather_facts: False
+    vars:
+      instance_type: t2.micro
+      image: ami-47a23a30
+    tasks:
+      - local_action:
+          module: ec2
+          key_name: "{{ keypair }}"
+          group: "{{ security_group }}"
+          instance_type: "{{ instance_type }}"
+          image: "{{ image }}"
+          vpc_subnet_id: "{{ subnet_id }}"
+          wait: true
+          assign_public_ip: yes

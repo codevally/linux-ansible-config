@@ -64,6 +64,14 @@ To create a new server on Digital Ocean using Ansible and the Digital Ocean vers
 
     ./do.sh create-droplet DROPLET_NAME
 
+To create a new server on Amazon Web Services using Ansible and the EC2 API:
+
+    ./do.sh create-ec2 SECURITY_GROUP_NAME SUBNET_ID KEYPAIR_NAME
+
+For example:
+
+    ./do.sh create-ec2 sg-c7bf09dc subnet-4c754137 my-keypair
+
 ## Directory structure ##
 
 For convenience, the Ansible playbooks are in the root of this project.
