@@ -1,2 +1,0 @@
-{{ ansible_ssh_user }} ALL=(ALL) ALL
-Defaults: {{ ansible_ssh_user }} !requiretty
