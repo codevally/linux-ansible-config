@@ -7,7 +7,7 @@
   - name: ensure key for Phusion APT repository
     apt_key: keyserver=keyserver.ubuntu.com id=561F9B9CAC40B2F7 state=present
   - name: ensure APT repository for Phusion Passenger
-    apt_repository: repo='deb https://oss-binaries.phusionpassenger.com/apt/passenger trusty main' state=present
+    apt_repository: repo='deb https://oss-binaries.phusionpassenger.com/apt/passenger {{ ansible_distribution_release }} main' state=present
   - name: ensure Phusion Passenger
     apt: name={{ item }} state=present
     with_items:
