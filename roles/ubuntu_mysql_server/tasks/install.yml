@@ -1,0 +1,10 @@
+---
+  - name: set MySQL root password
+    debconf: name="mysql-server" question="mysql-server/root_password" vtype="password" value={{ mysql_root_password }}
+  - name: set MySQL root password
+    debconf: name="mysql-server" question="mysql-server/root_password_again" vtype="password" value={{ mysql_root_password }}
+  - name: ensure MySQL server package is present
+    apt: name={{ items }} state=present
+    with_items:
+      - python-mysqldb
+      - mysql-server
