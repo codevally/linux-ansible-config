@@ -5,8 +5,12 @@
   roles:
     - ubuntu_common
     - admin_users
+    - ubuntu_monit
     - ubuntu_ssh_server
+    - ubuntu_monit
   vars:
     - default_locale: en_GB.UTF-8
     - system_timezone: Europe/London
     - custom_ssh_port: 54321
+    - monit_email: FIXME
+    - monit_password: FIXME

@@ -8,7 +8,11 @@
     - ubuntu_ssh_server
     - ubuntu_mysql_server
     - rails4_servers
+    - ubuntu_monit
   vars:
     - default_locale: en_GB.UTF-8
     - system_timezone: Europe/London
     - custom_ssh_port: 54321
+    - monit_email: FIXME
+    - monit_password: FIXME
+    - mysql_root_db_password: "{{ mysql_root_pass }}"

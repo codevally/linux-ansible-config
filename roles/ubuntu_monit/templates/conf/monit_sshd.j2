@@ -1,0 +1,6 @@
+# Monitors the SSH remote access service
+check process sshd with pidfile /var/run/sshd.pid
+  start program "/etc/init.d/ssh start"
+  stop program "/etc/init.d/ssh stop"
+  if failed port {{ custom_ssh_port }} protocol ssh then restart
+  if 5 restarts within 5 cycles then timeout

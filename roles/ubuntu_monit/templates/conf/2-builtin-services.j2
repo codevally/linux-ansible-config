@@ -1,0 +1,11 @@
+# Monitors the cron task scheduling service
+check process cron with pidfile /var/run/crond.pid
+  start program "/etc/init.d/cron start"
+  stop program "/etc/init.d/cron stop"
+  if 5 restarts within 5 cycles then timeout
+
+# Monitors the rsyslog logging service
+check process rsyslog with pidfile /var/run/rsyslogd.pid
+  start program "/etc/init.d/rsyslog start"
+  stop program "/etc/init.d/rsyslog stop"
+  if 5 restarts within 5 cycles then timeout
