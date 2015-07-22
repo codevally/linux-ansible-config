@@ -6,4 +6,4 @@
   - include: utilities.yml
   - include: compiler_packages.yml
   - include: ntp.yml
-    when: {{ ansible_bios_version }}.find('amazon') != -1
+    when:    ansible_bios_version.find('amazon') != -1
