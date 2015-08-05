@@ -1,0 +1,13 @@
+---
+    - name: test for presence of NTP client
+      stat: path=/usr/sbin/ntpd
+      register: ntp_exe
+
+    - set_fact: has_ntp=True
+      when: ntp_exe.stat.isreg is defined and ntp_exe.stat.isreg
+
+    - name: set Monit NTP configuration
+      template: src=monit_ntp.j2 dest=/etc/monit/conf.d/ntp owner=root group=root mode=0600
+      when: has_ntp is defined and has_ntp
+      notify:
+        - reload Monit service

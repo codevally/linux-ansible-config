@@ -4,6 +4,7 @@
   - include: system_services.yml
   - include: ssh.yml
     when: custom_ssh_port is defined
+  - include: ntp.yml
   - include: mysql.yml
     when: mysql_root_db_password is defined
   - include: nginx.yml

@@ -1,0 +1,1 @@
+# Monitors the NTP time servicecheck process ntp with pidfile /var/run/ntpd.pid  start program "/etc/init.d/ntp start"  stop program "/etc/init.d/ntp stop"  if failed port 123 type udp then restart  if 10 restarts within 10 cycles then timeout
