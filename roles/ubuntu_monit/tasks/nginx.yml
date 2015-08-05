@@ -1,6 +1,6 @@
 ---
     - name: test for presence of nginx
-      stat: path=/usr/bin/monit
+      stat: path=/usr/sbin/nginx
       register: nginx_exe
 
     - set_fact: has_nginx=True
