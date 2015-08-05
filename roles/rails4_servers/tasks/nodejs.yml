@@ -1,0 +1,3 @@
+---
+  - name: ensure Node.js
+    apt: name=nodejs state=present
