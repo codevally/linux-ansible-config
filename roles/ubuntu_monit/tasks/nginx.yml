@@ -1,0 +1,13 @@
+---
+    - name: test for presence of nginx
+      stat: path=/usr/bin/monit
+      register: nginx_exe
+
+    - set_fact: has_nginx=True
+      when: nginx_exe.stat.isreg is defined and nginx_exe.stat.isreg
+
+    - name: set Monit nginx configuration
+      template: src=monit_nginx.j2 dest=/etc/monit/conf.d/nginx owner=root group=root mode=0600
+      when: has_nginx is defined and has_nginx
+      notify:
+        - reload Monit service

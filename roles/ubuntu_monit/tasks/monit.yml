@@ -1,0 +1,9 @@
+---
+  - name: ensure Monit server package is present
+    apt: name=monit state=present
+  - name: ensure Monit service is enabled and running
+    service: name=monit state=started enabled=yes
+  - name: set Monit service configuration
+    template: src=monitrc.j2 dest=/etc/monit/monitrc backup=yes owner=root group=root mode=0600
+    notify:
+      - reload Monit service

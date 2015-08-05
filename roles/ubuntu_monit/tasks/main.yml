@@ -1,37 +1,10 @@
 ---
-  - name: ensure Monit server package is present
-    apt: name=monit state=present
-  - name: ensure Monit service is enabled and running
-    service: name=monit state=started enabled=yes
-  - name: set Monit service configuration
-    template: src=monitrc.j2 dest=/etc/monit/monitrc backup=yes owner=root group=root mode=0600
-    notify:
-      - reload Monit service
-  - name: set Monit host configuration
-    template: src=conf/1-localsystem.j2 dest=/etc/monit/conf.d/1-localsystem owner=root group=root mode=0600
-    notify:
-      - reload Monit service
-  - name: set Monit host services configuration
-    template: src=conf/2-builtin-services.j2 dest=/etc/monit/conf.d/2-builtin-services owner=root group=root mode=0600
-    notify:
-      - reload Monit service
-  - name: set Monit SSH configuration
-    template: src=conf/monit_sshd.j2 dest=/etc/monit/conf.d/monit_sshd owner=root group=root mode=0600
+  - include: monit.yml
+  - include: system_resources.yml
+  - include: system_services.yml
+  - include: ssh.yml
     when: custom_ssh_port is defined
-    notify:
-      - reload Monit service
-  - name: set Monit MySQL configuration
-    template: src=conf/monit_mysql.j2 dest=/etc/monit/conf.d/monit_mysql owner=root group=root mode=0600
+  - include: mysql.yml
     when: mysql_root_db_password is defined
-    notify:
-      - reload Monit service
-  - name: set Monit nginx configuration
-    template: src=conf/monit_nginx.j2 dest=/etc/monit/conf.d/monit_nginx owner=root group=root mode=0600
-    when: FIXME
-    notify:
-      - reload Monit service
-  - name: set Monit Postfix configuration
-    template: src=conf/monit_postfix.j2 dest=/etc/monit/conf.d/monit_postfix owner=root group=root mode=0600
-    when: FIXME
-    notify:
-      - reload Monit service
+  - include: nginx.yml
+  - include: postfix.yml

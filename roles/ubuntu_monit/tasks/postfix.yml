@@ -1,0 +1,13 @@
+---
+    - name: test for presence of Postfix
+      stat: path=/usr/bin/monit
+      register: postfix_exe
+
+    - set_fact: has_nginx=True
+      when: postfix_exe.stat.isreg is defined and postfix_exe.stat.isreg
+
+    - name: set Monit Postfix configuration
+      template: src=monit_postfix.j2 dest=/etc/monit/conf.d/postfix owner=root group=root mode=0600
+      when: has_postfix is defined and has_postfix
+      notify:
+        - reload Monit service

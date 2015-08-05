@@ -1,0 +1,5 @@
+---
+  - name: set Monit MySQL configuration
+    template: src=monit_mysql.j2 dest=/etc/monit/conf.d/mysql owner=root group=root mode=0600
+    notify:
+      - reload Monit service

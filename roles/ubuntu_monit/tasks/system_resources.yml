@@ -1,0 +1,5 @@
+---
+  - name: set Monit configuration for host resources
+    template: src=monit_system_resources.j2 dest=/etc/monit/conf.d/1-system-resources owner=root group=root mode=0600
+    notify:
+      - reload Monit service
