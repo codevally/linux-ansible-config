@@ -13,14 +13,8 @@ case $1 in
     mkdir -p filter_plugins group_vars host_vars inventory library playbooks roles
     mkdir -p roles/common/tasks roles/common/handlers roles/common/templates roles/common/files roles/common/vars roles/common/defaults roles/common/meta
   ;;
-  playbook)
-    ansible-playbook -K -i inventory $2
-  ;;
   hash-password)
     python -c "from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.encrypt(getpass.getpass())"
-  ;;
-  deploy-app)
-    ansible-playbook -i inventory/$2 setup_rails4_app.yml --extra-vars "app_name=$3"
   ;;
   create-droplet)
     ansible-playbook -i inventory/localhost create_droplet.yml --extra-vars "droplet_name=$2"
@@ -35,7 +29,7 @@ case $1 in
     ansible-playbook -i inventory/$2 setup_rails4_servers.yml --extra-vars "mysql_root_password=$3"
   ;;
   run)
-    ansible-playbook -K -i inventory/$2 setup_rails4_servers.yml
+    ansible-playbook -i inventory/$2 $3
   ;;
   setup-workstation)
     ansible-playbook -i inventory/localhost setup_osx_workstations.yml

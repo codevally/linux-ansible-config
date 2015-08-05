@@ -1,0 +1,10 @@
+---
+  - include: check_monit.yml
+  - include: app_user.yml
+  - include: app_dir.yml
+  - include: rubygems.yml
+  - include: delayed_job.yml
+    when:    app_workers > 0
+  - include: log_rotation.yml
+  - include: mysql_db.yml
+  - include: nginx_vhost.yml

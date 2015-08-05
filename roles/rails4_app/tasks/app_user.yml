@@ -1,0 +1,4 @@
+---
+  - name: ensure application user account
+    user: name={{ app_user_name }} comment="{{ app_user_fullname }}" shell=/bin/bash password={{ app_user_password }} groups="sudo" state=present
+    no_log: True

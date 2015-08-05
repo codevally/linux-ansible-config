@@ -1,0 +1,7 @@
+---
+  - name: test for presence of Monit
+    stat: path=/usr/bin/monit
+    register: monit_exe
+
+  - set_fact: has_monit=True
+    when: monit_exe.stat.isreg is defined and monit_exe.stat.isreg

@@ -1,0 +1,3 @@
+---
+  - name: enable log rotation for Rails application
+    template: src=logrotate.j2 dest=/etc/logrotate.d/{{ app_name }} owner=root group=root mode=0644 validate='/usr/sbin/logrotate -d %s'

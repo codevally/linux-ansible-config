@@ -1,0 +1,4 @@
+---
+  - name: ensure nginx virtual host for Rails application
+    template: src=nginx_vhost.j2 dest=/etc/nginx/sites-available/{{ app_name }} owner=root group=root mode=0644
+    notify: reload nginx
