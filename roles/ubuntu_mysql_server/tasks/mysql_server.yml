@@ -1,6 +1,6 @@
 ---
   - name: ensure MySQL server package is present
-    apt: name=mysql-server state=present
+    apt: name=mysql-server-5.6 state=present
   - name: ensure MySQL service is enabled and running
     service: name=mysql state=started enabled=yes
   - name: set MySQL service configuration
