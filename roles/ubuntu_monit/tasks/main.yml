@@ -1,5 +1,6 @@
 ---
   - include: monit.yml
+  - include: sudoer.yml
   - include: system_resources.yml
   - include: system_services.yml
   - include: ssh.yml
