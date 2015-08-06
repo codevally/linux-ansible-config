@@ -1,6 +1,8 @@
 ###############################################################################
 ## Monit control file
+##
 ## {{ ansible_managed }}
+##
 ###############################################################################
 ##
 ## Comments begin with a '#' and extend through the end of the line. Keywords
@@ -48,8 +50,8 @@
 # set mailserver mail.bar.baz,               # primary mailserver
 #                backup.bar.baz port 10025,  # backup mailserver on port 10025
 #                localhost                   # fallback relay
-#
-#
+set mailserver {{ monit_email_sender_host }} port {{ monit_email_sender_port }} username "{{ monit_email_sender }}" password "{{ monit_email_sender_password }}" using tlsv1 with timeout 30 seconds
+
 ## By default Monit will drop alert events if no mail servers are available.
 ## If you want to keep the alerts for later delivery retry, you can use the
 ## EVENTQUEUE statement. The base directory where undelivered alerts will be
@@ -68,7 +70,7 @@ set mail-format { from: monit@{{ ansible_hostname }} }
 ## service defined in this file has errors. Alerts may be restricted on
 ## events by using a filter as in the second example below.
 #
-set alert {{ monit_email }}        # receive all alerts
+set alert {{ monit_email_recipient }}        # receive all alerts
 ## Do not alert when Monit start,stop or perform a user initiated action
 # set alert manager@foo.bar not on { instance, action }
 #
