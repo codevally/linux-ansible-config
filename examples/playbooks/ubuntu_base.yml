@@ -1,5 +1,5 @@
 ---
-- name: ubuntu-base
+- name: ubuntu_base
   sudo: True
   hosts: os_ubuntu
   tasks:

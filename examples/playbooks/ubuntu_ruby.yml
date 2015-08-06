@@ -1,5 +1,5 @@
 ---
-- name: ubuntu-base
+- name: ubuntu_ruby
   sudo: True
   hosts: os_ubuntu
   tasks:
@@ -9,15 +9,15 @@
       apt: name=git state=present
     - name: ensure Curl
       apt: name=curl state=present
-    - name: ensure Node.js 
+    - name: ensure Node.js
       apt: name=nodejs state=present
     - name: ensure GCC toolchain
       apt: name={{ item }} state=present
       with_items:
         - build-essential
-        - automake 
+        - automake
         - libtool
-        - bison 
+        - bison
     - name: ensure Ruby dependencies
       apt: name={{ item }} state=present
       with_items:
@@ -37,4 +37,3 @@
         - imagemagick
         - libmagickcore-dev
         - libmagickwand-dev
-
