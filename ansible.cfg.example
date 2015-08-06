@@ -3,3 +3,4 @@
 # SSH settings
 remote_user = ansibler
 remote_port = 22
+pipelining  = False

@@ -1,2 +1,2 @@
 ---
-  - include: ansible_user.yml
+  - include: admin_user.yml
