@@ -8,5 +8,6 @@
   - include: ntp.yml
   - include: mysql.yml
     when: mysql_root_db_password is defined
+  - include: postgresql.yml
   - include: nginx.yml
   - include: postfix.yml

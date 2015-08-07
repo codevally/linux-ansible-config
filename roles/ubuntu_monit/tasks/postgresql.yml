@@ -1,0 +1,13 @@
+---
+  - name: test for presence of PostgreSQL
+    shell: dpkg -l postgresql | grep postgresql
+    register: postgresql_installed
+
+  - set_fact: has_postgresql=True
+    when: postgresql_installed.stdout is defined and postgresql_installed.stdout.find('ii  postgresql') != -1
+
+  - name: set Monit PostgreSQL configuration
+    template: src=monit_postgresql.j2 dest=/etc/monit/conf.d/postgresql owner=root group=root mode=0600
+    when: has_postgresql is defined and has_postgresql
+    notify:
+      - reload Monit service
