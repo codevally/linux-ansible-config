@@ -2,7 +2,7 @@
 
 An experimental configuration for [Ansible](http://www.ansible.com).
 
-For a concise introduction to Ansible, [read this page](https://github.com/afroisalreadyinu/practical-ansible-intro). 
+For a concise introduction to Ansible, [read this page](https://github.com/afroisalreadyinu/practical-ansible-intro) or [this screencast series](https://sysadmincasts.com/episodes/43-19-minutes-with-ansible-part-1-4).
 
 ## Set Up ##
 
