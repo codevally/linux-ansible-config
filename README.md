@@ -2,6 +2,8 @@
 
 An experimental configuration for [Ansible](http://www.ansible.com).
 
+For a concise introduction to Ansible, [read this page](https://github.com/afroisalreadyinu/practical-ansible-intro). 
+
 ## Set Up ##
 
 To set up Ansible on an OS X workstation:
