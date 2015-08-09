@@ -1,5 +1,6 @@
 ---
   - include: ansible_dependencies.yml
+  - include: hostname.yml
   - include: locale.yml
   - include: timezone.yml
   - include: firewall.yml

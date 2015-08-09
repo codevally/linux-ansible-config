@@ -1,8 +1,9 @@
 ---
   - name: ensure user account
-    user: name={{ user_name }} comment={{ user_full_name }} uid={{ user_id }} shell=/bin/bash password={{ user_password_sha512 }} state=present
-    no_log: True
+    user: name={{ user_name }} comment="{{ user_full_name }}" uid={{ user_id }} shell=/bin/bash password="{{ user_password_sha512 }}" state=present
+    
   - name: ensure SSH key for user account
     authorized_key: user={{ user_name }} key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}" state=present
+
   - name: enable sudo for user account
     template: src=ansible_sudoer.j2 dest=/etc/sudoers.d/{{ user_name }} owner=root group=root mode=0600 validate='visudo -cf %s'

@@ -1,3 +1,0 @@
-# Redirect HTTP requests to secure site# server {#   listen 80;#   server_name {{ app_hostname }};#   rewrite ^(.*) https://$server_name$1 permanent;# }server {  listen 80;  server_name {{ app_hostname }};  root /home/deploy/public_html/{{ app_name }}/current/public;  passenger_enabled on;  rails_env {{ app_environment }};￼￼￼￼
-  # Serve pre-gzipped version of assets
-  location ~ ^/(assets)/ {    gzip_static on;    expires max;    add_header Cache-Control public;  }  # Remove this location directive for production sites  location /robots.txt {    return 200 "User-Agent: *\nDisallow: /\n";  }  if ($request_filename ~* .ico$) { break; }  if (-f $document_root/system/maintenance.html) {    rewrite ^(.*)$ /system/maintenance.html break;  }}

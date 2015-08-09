@@ -20,13 +20,13 @@ case $1 in
     ansible-playbook -i inventory/localhost create_droplet.yml --extra-vars "droplet_name=$2"
   ;;
   create-ec2)
-    ansible-playbook -i inventory/localhost create_ec2.yml --extra-vars "security_group=$2 subnet_id=$3 keypair=$4"
+    ansible-playbook -i inventory/localhost create_ec2.yml --extra-vars "security_group_name=$2 subnet_id=$3 keypair=$4"
   ;;
   create-linode)
     ansible-playbook -i inventory/localhost create_linode.yml --extra-vars "linode_name=$2"
   ;;
   provision)
-    ansible-playbook -i inventory/$2 setup_rails4_servers.yml --extra-vars "mysql_root_password=$3"
+    ansible-playbook -i inventory/$2 setup_rails4_servers.yml --extra-vars "hostname=$3 mysql_root_pass=$4"
   ;;
   run)
     ansible-playbook -i inventory/$2 $3

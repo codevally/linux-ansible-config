@@ -1,7 +1,9 @@
 ---
   - name: test for presence of PostgreSQL
-    shell: dpkg -l postgresql | grep postgresql
+    command: dpkg-query -l postgresql
     register: postgresql_installed
+    failed_when: postgresql_installed.rc > 1
+    changed_when: no
 
   - set_fact: has_postgresql=True
     when: postgresql_installed.stdout is defined and postgresql_installed.stdout.find('ii  postgresql') != -1

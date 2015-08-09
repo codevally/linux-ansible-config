@@ -1,9 +1,0 @@
----
-  - name: ensure MySQL server package is present
-    apt: name=mysql-server-5.6 state=present
-  - name: ensure MySQL service is enabled and running
-    service: name=mysql state=started enabled=yes
-  - name: set MySQL service configuration
-    template: src=server/my.cnf.j2 dest=/etc/mysql/my.cnf backup=yes owner=root group=root mode=0644
-    notify:
-      - reload MySQL service
