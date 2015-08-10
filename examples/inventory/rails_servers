@@ -1,0 +1,5 @@
+[rails4-servers:children]
+staging
+
+[staging]
+stg-0001.stuartellis.org ansible_ssh_host=84.32.65.47
