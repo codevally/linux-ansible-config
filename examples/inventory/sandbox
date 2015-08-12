@@ -2,4 +2,4 @@
 sandbox
 
 [sandbox]
-myserver.mydomain.example ansible_ssh_user=deploy ansible_ssh_port=54321
+myserver.mydomain.example ansible_ssh_host=1.2.3.4 ansible_ssh_port=54321 ansible_ssh_user=deploy

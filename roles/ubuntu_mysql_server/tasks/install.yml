@@ -6,7 +6,7 @@
     debconf: name="mysql-server" question="mysql-server/root_password_again" vtype="password" value={{ mysql_root_db_password }}
 
   - name: ensure MySQL server package is present
-    apt: name=mysql-server-5.6 state=present
+    apt: name="mysql-server-{{ mysql_version }}" state=present
 
   - name: ensure MySQL service is enabled and running
     service: name=mysql state=started enabled=yes

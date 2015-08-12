@@ -1,5 +1,16 @@
 ---
+  - name: test for presence of MySQL
+    command: dpkg-query -l "mysql-server-{{ mysql_version }}"
+    register: mysql_installed
+    failed_when: mysql_installed.rc > 1
+    changed_when: no
+
+  - name: set value of has_mysql
+    set_fact: has_mysql=True
+    when: mysql_installed.stdout is defined and mysql_installed.stdout.find('ii  mysql-server') != -1
+
   - name: set Monit MySQL configuration
     template: src=monit_mysql.j2 dest=/etc/monit/conf.d/mysql owner=root group=root mode=0600
+    when: has_mysql is defined and has_mysql
     notify:
       - reload Monit service

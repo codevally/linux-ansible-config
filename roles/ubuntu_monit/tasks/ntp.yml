@@ -3,7 +3,8 @@
       stat: path=/usr/sbin/ntpd
       register: ntp_exe
 
-    - set_fact: has_ntp=True
+    - name: set value of has_ntp
+      set_fact: has_ntp=True
       when: ntp_exe.stat.isreg is defined and ntp_exe.stat.isreg
 
     - name: set Monit NTP configuration

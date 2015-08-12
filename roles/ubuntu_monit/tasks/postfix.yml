@@ -3,7 +3,8 @@
       stat: path=/usr/sbin/postfix
       register: postfix_exe
 
-    - set_fact: has_postfix=True
+    - name: set value of has_postfix
+      set_fact: has_postfix=True
       when: postfix_exe.stat.isreg is defined and postfix_exe.stat.isreg
 
     - name: set Monit Postfix configuration

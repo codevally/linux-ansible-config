@@ -6,6 +6,7 @@
     - single_sysadmin
     - ubuntu_common
     - ubuntu_ssh_server
+    - ubuntu_mysql_client
     - ubuntu_mysql_server
     - rails4_server
     - ubuntu_monit
@@ -23,4 +24,5 @@
     - monit_email_sender_host: "smtp.gmail.com"
     - monit_email_sender_port: 587
     - monit_password: "CHANGEME"
+    - mysql_version: "5.6"
     - mysql_root_db_password: "{{ mysql_root_pass }}"

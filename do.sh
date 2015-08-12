@@ -8,6 +8,7 @@ case $1 in
     pip install --user dopy
     pip install --user pycurl
     pip install --user passlib
+    ansible-galaxy install rvm_io.rvm1-ruby
   ;;
   setup-repo)
     mkdir -p filter_plugins group_vars host_vars inventory library playbooks roles
@@ -26,7 +27,7 @@ case $1 in
     ansible-playbook -i inventory/localhost create_linode.yml --extra-vars "linode_name=$2"
   ;;
   provision)
-    ansible-playbook -i inventory/$2 setup_rails4_servers.yml --extra-vars "hostname=$3 mysql_root_pass=$4"
+    ansible-playbook -i inventory/$2 setup_rails4_servers.yml --extra-vars "ansible_ssh_port=22 hostname=$3 mysql_root_pass=$4"
   ;;
   run)
     ansible-playbook -i inventory/$2 $3

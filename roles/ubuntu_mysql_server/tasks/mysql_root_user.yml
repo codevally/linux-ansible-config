@@ -1,6 +1,7 @@
 ---
   - name: copy .my.cnf file to Ansible account with root password credentials
     template: src=client/my.cnf.j2 dest=/home/{{ ansible_ssh_user }}/.my.cnf owner={{ ansible_ssh_user }} group={{ ansible_ssh_user }} mode=0600
+    when: ansible_ssh_user != "root"
 
   - name: copy .my.cnf file to root account with root password credentials
     template: src=client/my.cnf.j2 dest=/root/.my.cnf owner=root group=root mode=0600

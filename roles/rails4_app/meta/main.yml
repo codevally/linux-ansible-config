@@ -1,4 +1,4 @@
 ---
-  - dependencies:
-    - { role: ubuntu_mysql_server }
+  dependencies:
+    - { role: ubuntu_mysql_client }
     - { role: rails4_servers }

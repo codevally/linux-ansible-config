@@ -3,25 +3,24 @@
   hosts: rails4-servers
   sudo: True
   roles:
-    - rails4_app
     - role: rvm_io.rvm1-ruby
       rvm1_install_flags: '--auto-dotfiles --user-install'
-      rvm1_install_path: '/home/{{ ansible_ssh_user }}/.rvm'
+      rvm1_install_path: '/home/{{ app_user_name }}/.rvm'
       rvm1_rvm_version: 'stable'
       rvm1_rubies:
         - '{{ app_ruby_version }}'
+    - rails4_app
+    - rails4_app_db
   vars:
     - default_locale: en_GB.UTF-8
     - system_timezone: Europe/London
-    - custom_ssh_port: 54321
+    - custom_ssh_port: 53124
     - app_name: "dummy_app_rails"
     - app_hostname: "dummyapp.example"
     - app_environment: "production"
     - app_user_name: "dummyapp"
-    - app_user_fullname: "Dummy Account"
-    - app_user_password: "Red-Blue-Green"
     - app_db_username: "dummy_app_prd"
-    - app_db_password: "Red-Blue-Green"
+    - app_db_password: "CHANGEME"
     - app_db_name: "dummy_app_prd"
     - app_ruby_version: "ruby-2.2.2"
     - app_workers: 3

@@ -2,4 +2,4 @@
 staging
 
 [staging]
-stg-0001.stuartellis.org ansible_ssh_host=84.32.65.47
+stg-0001.stuartellis.org ansible_ssh_host=52.18.99.165 ansible_ssh_port=12345

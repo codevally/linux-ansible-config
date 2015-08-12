@@ -5,7 +5,8 @@
     failed_when: postgresql_installed.rc > 1
     changed_when: no
 
-  - set_fact: has_postgresql=True
+  - name: set value of has_postgresql
+    set_fact: has_postgresql=True
     when: postgresql_installed.stdout is defined and postgresql_installed.stdout.find('ii  postgresql') != -1
 
   - name: set Monit PostgreSQL configuration

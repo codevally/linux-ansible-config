@@ -1,5 +1,4 @@
 ---
   - include: install.yml
-  - include: mysql_extras.yml
   - include: mysql_root_user.yml
   - include: mysql_rm_testdb.yml
