@@ -1,9 +1,8 @@
 ---
-  - include: ansible_dependencies.yml
+  - include: ansible_prerequisites.yml
   - include: hostname.yml
   - include: locale.yml
   - include: timezone.yml
-  - include: firewall.yml
   - include: utilities.yml
   - include: compiler_packages.yml
   - include: ntp.yml

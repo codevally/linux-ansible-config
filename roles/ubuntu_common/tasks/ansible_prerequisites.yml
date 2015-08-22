@@ -1,9 +1,6 @@
 ---
   - name: refresh Apt package index
     apt: update-cache=yes cache_valid_time=86400
-
+    
   - name: ensure Debian configuration utilities
     apt: name=debconf-utils state=present
-
-  - name: ensure ufw firewall
-    apt: name=ufw state=present

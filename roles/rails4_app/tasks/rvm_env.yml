@@ -1,0 +1,10 @@
+---
+  - name: ensure RVM gemset for application
+    shell: "source $HOME/.rvm/scripts/rvm ; rvm gemset create {{ app_gemset }}"
+    args:
+      executable: /bin/bash
+
+  - name: ensure Bundler is in RVM gemset for application
+    shell: "source $HOME/.rvm/scripts/rvm ; rvm gemset use {{ app_gemset }} ; gem install bundler"
+    args:
+      executable: /bin/bash

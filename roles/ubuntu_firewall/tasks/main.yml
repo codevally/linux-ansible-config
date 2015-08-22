@@ -1,0 +1,15 @@
+---
+  - name: ensure ufw firewall
+    apt: name=ufw state=present
+
+  - name: allow SSH through firewall
+    ufw: rule=allow port={{ custom_ssh_port }} proto=tcp
+
+  - name: allow HTTP
+    ufw: rule=allow port=80 proto=tcp
+
+  - name: allow HTTPS
+    ufw: rule=allow port=443 proto=tcp
+
+  - name: enable ufw firewall
+    ufw: state=enabled policy=deny

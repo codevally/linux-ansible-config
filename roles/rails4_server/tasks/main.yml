@@ -3,5 +3,4 @@
   - include: nodejs.yml
   - include: ruby_dependencies.yml
   - include: imagemagick.yml
-  - include: firewall_allow_web.yml
   - include: passenger.yml

@@ -1,0 +1,25 @@
+---
+  - name: disable SSH root access
+    lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: ^PermitRootLogin
+      line: PermitRootLogin no
+      state: present
+    notify:
+      - reload SSH service
+  - name: disable SSH password authentication
+    lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: ^PasswordAuthentication
+      line: PasswordAuthentication no
+      state: present
+    notify:
+      - reload SSH service
+  - name: set SSH port
+    lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: ^Port
+      line: Port {{ custom_ssh_port }}
+      state: present
+    notify:
+      - reload SSH service
