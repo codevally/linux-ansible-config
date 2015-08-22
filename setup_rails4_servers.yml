@@ -10,6 +10,7 @@
     - ubuntu_mysql_server
     - rails4_server
     - ubuntu_monit
+    - ubuntu_firewall
   vars:
     - default_locale: en_GB.UTF-8
     - system_timezone: Europe/London
