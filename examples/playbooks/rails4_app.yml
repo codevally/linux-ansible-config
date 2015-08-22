@@ -2,25 +2,27 @@
 - name: Set up Ruby on Rails v4 application
   hosts: rails4-servers
   sudo: True
+  sudo_user: "{{ app_user_name }}"
   roles:
     - role: rvm_io.rvm1-ruby
-      rvm1_install_flags: '--auto-dotfiles --user-install'
-      rvm1_install_path: '/home/{{ app_user_name }}/.rvm'
-      rvm1_rvm_version: 'stable'
+      rvm1_install_flags: "--auto-dotfiles --user-install"
+      rvm1_install_path: "/home/{{ app_user_name }}/.rvm"
+      rvm1_rvm_version: "stable"
+      rvm1_user: "{{ app_user_name }}"
       rvm1_rubies:
-        - '{{ app_ruby_version }}'
+        - "{{ app_ruby_version }}"
     - rails4_app
-    - rails4_app_db
   vars:
     - default_locale: en_GB.UTF-8
     - system_timezone: Europe/London
-    - custom_ssh_port: 53124
+    - custom_ssh_port: CHANGEME
     - app_name: "my_app_rails"
     - app_hostname: "myapp.example"
     - app_environment: "production"
-    - app_user_name: "myapp"
+    - app_user_name: "myuser"
     - app_db_username: "my_app_prd"
     - app_db_password: "CHANGEME"
     - app_db_name: "my_app_prd"
     - app_ruby_version: "ruby-2.2.2"
+    - app_gemset: "myapp"
     - app_workers: 3
