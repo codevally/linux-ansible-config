@@ -6,9 +6,10 @@ ansible.cfg
 inventory/aws
 inventory/digital_ocean
 inventory/sandbox
-**/current_admin_accounts.yml
-**/former_admin_accounts.yml
-**/secrets.yml
+group_vars/*/current_admin_accounts.yml
+group_vars/*/former_admin_accounts.yml
+group_vars/*/ssh_keys.yml
+group_vars/*/secrets.yml
 
 # Azure
 scripts/azure
