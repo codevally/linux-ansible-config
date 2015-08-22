@@ -1,0 +1,13 @@
+---
+- name: restart Linux servers
+  hosts: all
+  sudo: True
+  tasks:
+    - name: send restart command
+      command: /sbin/shutdown -r now
+      async: 0
+      poll: 0
+      ignore_errors: True
+    - name: wait for the server to restart
+      local_action: wait_for host={{ ansible_ssh_host }} delay=30 timeout=360 state=started
+      sudo: False
