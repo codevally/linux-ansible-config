@@ -1,3 +1,4 @@
 ---
   - name: enable admin access to Monit without password
     template: src=monit_sudoer.j2 dest=/etc/sudoers.d/monit_users owner=root group=root mode=0600 validate='visudo -cf %s'
+    become: yes

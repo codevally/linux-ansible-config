@@ -1,13 +1,20 @@
 ---
   - name: ensure root directory for Web applications
-    file: path=path=/home/{{ app_user_name }}/public_html state=directory owner={{ app_user_name }} group=www-data mode=0775
+    file: path=/home/{{ app_user_name }}/public_html state=directory owner={{ app_user_name }} group="www-data" mode=0775
+    become: yes
+
   - name: ensure main directory for Rails application
-    file: path=/home/{{ app_user_name }}/public_html/{{ app_name }} state=directory owner={{ app_user_name }} group=www-data mode=0775
+    file: path=/home/{{ app_user_name }}/public_html/{{ app_name }} state=directory owner={{ app_user_name }} group="www-data" mode=0775
+    become: yes
+
   - name: ensure sub-directories for Rails application
-    file: path=/home/{{ app_user_name }}/public_html/{{ app_name }}/shared/{{ item }} state=directory owner={{ app_user_name }} group=www-data mode=0775
+    file: path=/home/{{ app_user_name }}/public_html/{{ app_name }}/shared/{{ item }} state=directory owner={{ app_user_name }} group="www-data" mode=0775
+    become: yes
     with_items:
       - config
       - log
       - tmp
+
   - name: ensure application config file
     template: src=database.yml.j2 dest=/home/{{ app_user_name }}/public_html/{{ app_name }}/shared/config/database.yml owner={{ app_user_name }} group={{ app_user_name }} mode=0600
+    become: yes

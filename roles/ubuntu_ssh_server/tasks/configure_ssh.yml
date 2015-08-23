@@ -5,6 +5,7 @@
       regexp: ^PermitRootLogin
       line: PermitRootLogin no
       state: present
+    become: yes
     notify:
       - reload SSH service
   - name: disable SSH password authentication
@@ -13,6 +14,7 @@
       regexp: ^PasswordAuthentication
       line: PasswordAuthentication no
       state: present
+    become: yes
     notify:
       - reload SSH service
   - name: set SSH port
@@ -21,5 +23,6 @@
       regexp: ^Port
       line: Port {{ custom_ssh_port }}
       state: present
+    become: yes
     notify:
       - reload SSH service

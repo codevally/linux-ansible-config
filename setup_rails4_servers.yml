@@ -1,7 +1,6 @@
 ---
 - name: Set up Ruby on Rails v4 servers
   hosts: rails4-servers
-  sudo: True
   roles:
     - single_sysadmin
     - ubuntu_common

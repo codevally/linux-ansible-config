@@ -9,6 +9,7 @@
 
     - name: set Monit NTP configuration
       template: src=monit_ntp.j2 dest=/etc/monit/conf.d/ntp owner=root group=root mode=0600
+      become: yes
       when: has_ntp is defined and has_ntp
       notify:
         - reload Monit service

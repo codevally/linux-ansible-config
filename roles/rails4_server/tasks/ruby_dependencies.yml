@@ -1,6 +1,7 @@
 ---
   - name: ensure Ruby dependencies
     apt: name={{ item }} state=present
+    become: yes
     with_items:
       - libcurl4-openssl-dev
       - libyaml-dev

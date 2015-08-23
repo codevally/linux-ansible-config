@@ -1,5 +1,7 @@
 ---
   - name: ensure current SSH keys
     authorized_key: user={{ user_name }} key="{{ item.value.ssh_rsa_pubkey }}" state=present
+    become: yes
+    become_user: {{ user_name }}
     no_log: True
     with_dict: ssh_keys

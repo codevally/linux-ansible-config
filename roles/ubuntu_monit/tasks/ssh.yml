@@ -1,5 +1,6 @@
 ---
   - name: set Monit SSH configuration
     template: src=monit_sshd.j2 dest=/etc/monit/conf.d/sshd owner=root group=root mode=0600
+    become: yes
     notify:
       - reload Monit service

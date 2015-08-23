@@ -1,8 +1,13 @@
 ---
   - name: ensure nginx HTTP virtual host for Rails application
     template: src=nginx_http_vhost.j2 dest=/etc/nginx/sites-available/{{ app_name }} owner=root group=root mode=0644
+    become: yes
+
   - name: ensure nginx HTTPS virtual host for Rails application
     template: src=nginx_ssl_vhost.j2 dest=/etc/nginx/sites-available/{{ app_name }}-ssl owner=root group=root mode=0644
+    become: yes
+
   - name: enable nginx HTTP virtual host for Rails application
     file: src=/etc/nginx/sites-available/{{ app_name }} dest=/etc/nginx/sites-enabled/{{ app_name }} owner=root group=root state=link force=yes
+    become: yes
     notify: reload nginx

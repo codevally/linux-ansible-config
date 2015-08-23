@@ -1,6 +1,6 @@
 ---
 - name: ubuntu_ruby
-  sudo: True
+  become_user: "{{ app_user_name }}": True
   hosts: os_ubuntu
   tasks:
     - name: refresh Apt index

@@ -1,3 +1,4 @@
 ---
   - name: ensure NTP client
     apt: name=ntp state=present
+    become: yes

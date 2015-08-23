@@ -1,5 +1,6 @@
 ---
   - name: set Monit configuration for core services
     template: src=monit_system_services.j2 dest=/etc/monit/conf.d/2-system-services owner=root group=root mode=0600
+    become: yes
     notify:
       - reload Monit service

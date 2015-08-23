@@ -1,9 +1,12 @@
 ---
   - name: ensure Git
     apt: name=git state=present
+    become: yes
 
   - name: ensure Curl
     apt: name=curl state=present
+    become: yes
 
   - name: ensure Byobu
     apt: name=byobu state=present
+    become: yes

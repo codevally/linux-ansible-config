@@ -3,11 +3,13 @@
       stat: path=/usr/sbin/nginx
       register: nginx_exe
 
-    - set_fact: has_nginx=True
+    - name: set value of has_nginx
+      set_fact: has_nginx=True
       when: nginx_exe.stat.isreg is defined and nginx_exe.stat.isreg
 
     - name: set Monit nginx configuration
       template: src=monit_nginx.j2 dest=/etc/monit/conf.d/nginx owner=root group=root mode=0600
+      become: yes
       when: has_nginx is defined and has_nginx
       notify:
         - reload Monit service

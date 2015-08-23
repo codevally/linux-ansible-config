@@ -1,23 +1,28 @@
 ---
   - name: ensure prerequisites for Phusion APT repository
     apt: name={{ item }} state=present
+    become: yes
     with_items:
       - apt-transport-https
       - ca-certificates
 
   - name: ensure key for Phusion APT repository
     apt_key: keyserver=keyserver.ubuntu.com id=561F9B9CAC40B2F7 state=present
+    become: yes
 
   - name: ensure APT repository for Phusion Passenger
     apt_repository: repo='deb https://oss-binaries.phusionpassenger.com/apt/passenger {{ ansible_distribution_release }} main' state=present
+    become: yes
 
   - name: ensure Phusion Passenger
     apt: name={{ item }} state=present
+    become: yes
     with_items:
       - nginx-extras
       - passenger
 
   - name: set nginx Passenger configuration
     template: src=nginx.conf.j2 dest=/etc/nginx/nginx.conf backup=yes owner=root group=root mode=0644 validate="/usr/sbin/nginx -c %s -t"
+    become: yes
     notify:
       - reload nginx

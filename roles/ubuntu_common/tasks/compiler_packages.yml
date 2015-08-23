@@ -1,6 +1,7 @@
 ---
   - name: ensure GCC toolchain
     apt: name={{ item }} state=present
+    become: yes
     with_items:
       - build-essential
       - automake

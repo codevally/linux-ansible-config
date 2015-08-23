@@ -1,6 +1,7 @@
 ---
   - name: ensure MySQL client packages
     apt: name={{ item }} state=present
+    become: yes
     with_items:
       - libmysqlclient-dev
       - mysql-client-core-5.6

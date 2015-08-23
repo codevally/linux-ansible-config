@@ -1,8 +1,10 @@
 ---
   - name: ensure default locale present
     locale_gen: name={{ default_locale }} state=present
+    become: yes
 
   - name: ensure default locale
     template: src=locale.j2 dest=/etc/default/locale backup=yes owner=root group=root mode=0644
+    become: yes
     notify:
       - set locale

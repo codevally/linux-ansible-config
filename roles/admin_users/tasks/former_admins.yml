@@ -1,5 +1,6 @@
 ---
   - name: admins | ensure user accounts for former admins are removed
     user: name={{ item }} remove=yes state=absent
+    become: yes
     no_log: True
     with_items: former_admin_accounts

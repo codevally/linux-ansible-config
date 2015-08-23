@@ -1,8 +1,8 @@
 ---
 - name: Set up Ruby on Rails v4 application
   hosts: rails4-servers
-  sudo: True
-  sudo_user: "{{ app_user_name }}"
+  become_user: "{{ app_user_name }}": True
+  become_user: "{{ app_user_name }}"_user: "{{ app_user_name }}"
   roles:
     - role: rvm_io.rvm1-ruby
       rvm1_install_flags: "--auto-dotfiles --user-install"

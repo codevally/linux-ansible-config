@@ -1,8 +1,11 @@
 ---
   - name: ensure init script for Rails delayed_job workers
     template: src=delayed_job_init.j2 dest=/etc/init.d/{{ app_name }} owner=root group=root mode=0755
+    become: yes
     when: app_workers > 0
+
   - name: ensure Monit configuration for Rails delayed_job workers
     template: src=delayed_job_monit.j2 dest=/etc/monit/conf.d/{{ app_name }}-{{ item }} owner=root group=root mode=0644
     with_sequence: start=0 end={{ app_workers -1 }} stride=1
+    become: yes
     when: app_workers > 0 and has_monit is defined and has_monit
