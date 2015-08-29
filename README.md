@@ -8,7 +8,7 @@ For a concise introduction to Ansible, [read this page](https://github.com/afroi
 
 To set up Ansible on an OS X workstation:
 
-    ./do.sh setup-admin
+    make controller
     cp ./ansible.cfg.example ./ansible.cfg
 
 ## Usage ##
@@ -60,21 +60,17 @@ Enter the password for the encrypted files when prompted.
 
 To create a new server on Amazon Web Services using Ansible and the EC2 API:
 
-    ./do.sh create-ec2 SECURITY_GROUP_NAME SUBNET_ID KEYPAIR_NAME
-
-For example:
-
-    ./do.sh create-ec2 sg-c7bf09dc subnet-4c754137 my-keypair
+    make create-ec2
 
 This relies on the presence of environment variables for the AWS access key and AWS secret key, e.g. AWS_ACCESS_KEY_ID and AWS_SECRET_KEY.
 
 To create a new Linode using Ansible and the Linode API:
 
-    ./do.sh create-linode LINODE_NAME
+    make create-linode
 
 To create a new server on Digital Ocean using Ansible and the Digital Ocean version 1 API:
 
-    ./do.sh create-droplet DROPLET_NAME
+    make create-droplet
 
 ## Directory structure ##
 
@@ -94,7 +90,7 @@ For convenience, the Ansible playbooks are in the root of this project.
 
 You must specify the SHA512 hashed version of a user password when you set it through Ansible. By default, Mac OS X does not generate the same hashes as Linux, so use this command to generate a valid hash:
 
-    ./do.sh hash-password
+    make password
 
 Enter the password that you would like to use at the prompt.
 
