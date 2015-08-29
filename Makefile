@@ -1,12 +1,12 @@
 default: help
-.PHONY: controller create-droplet create-ec2 create-linode osx password provision repo run
+.PHONY: create-droplet create-ec2 create-linode osx-controller osx-workstation password provision repo run
 
 help:
-				@echo "make controller - install Ansible on the current Mac OS X system"
 				@echo "make create-droplet - Create a standard Digital Ocean droplet"
 				@echo "make create-ec2 - Create a standard Amazon EC2 server"
 				@echo "make create-linode - Create a standard Linode server"
-				@echo "make osx - use Ansible set up the current Mac OS X system"
+				@echo "make osx-controller - install Ansible on the current Mac OS X system"
+				@echo "make osx-workstation - use Ansible to set up the current Mac OS X system"
 				@echo "make password - create a hash from a given password"
 				@echo "make provision - set up a system as a Ruby on Rails server"
 				@echo "make repo - create the directory structure for an Ansible repository"
@@ -21,7 +21,7 @@ create-ec2:
 create-linode:
 				read -p "Droplet name: " NODE_ID ; ansible-playbook -i inventory/localhost create_linode.yml --extra-vars linode_name=$$NODE_ID
 
-controller:
+osx-controller:
 				brew update && brew install ansible
 				sudo easy_install pip
 				pip install --user linode-python
@@ -30,7 +30,7 @@ controller:
 				pip install --user passlib
 				ansible-galaxy install rvm_io.rvm1-ruby
 
-osx:
+osx-workstation:
 				ansible-playbook -i inventory/localhost setup_osx_workstations.yml
 
 password:
