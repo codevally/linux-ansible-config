@@ -12,4 +12,4 @@
           client_id="{{ lookup('env', 'CLIENT_ID_DO') }}"
           size_id=66
           region_id=7
-          image_id=12790328
+          image_id=13089493
