@@ -3,5 +3,5 @@
   hosts: all
   tasks:
     - name: update all packages
-      apt: update_cache=yes upgrade=safe
+      apt: update_cache=yes upgrade=full
       become: yes
