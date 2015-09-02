@@ -23,7 +23,7 @@
     - app_gemset: "EXAMPLE_prd"
   vars_prompt:
     - name: "app_db_password"
-      prompt: "Password for MySQL account"
+      prompt: "MySQL account password for application"
       private: yes
       confirm: yes
     - name: "app_workers"
