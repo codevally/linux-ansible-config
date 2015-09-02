@@ -2,12 +2,12 @@ default: help
 .PHONY: create-droplet create-ec2 create-linode osx-controller osx-workstation password provision repo run
 
 help:
-				@echo "make create-droplet - Create a standard Digital Ocean droplet"
-				@echo "make create-ec2 - Create a standard Amazon EC2 server"
-				@echo "make create-linode - Create a standard Linode server"
+				@echo "make create-droplet - create a standard Digital Ocean droplet"
+				@echo "make create-ec2 - create a standard Amazon EC2 server"
+				@echo "make create-linode - create a standard Linode server"
 				@echo "make osx-controller - install Ansible on the current Mac OS X system"
 				@echo "make osx-workstation - use Ansible to set up the current Mac OS X system"
-				@echo "make password - create a hash from a given password"
+				@echo "make password - create a SHA512 hash from a given password"
 				@echo "make provision - set up a system as a Ruby on Rails server"
 				@echo "make repo - create the directory structure for an Ansible repository"
 				@echo "make run - execute the specified playbook on an inventory of nodes"
