@@ -13,13 +13,13 @@ help:
 				@echo "make run - execute the specified playbook on an inventory of nodes"
 
 create-droplet:
-				read -p "Droplet name: " NODE_ID ; ansible-playbook -i inventory/localhost create_droplet.yml --extra-vars droplet_name=$$NODE_ID
+				ansible-playbook -i inventory/localhost create_droplet.yml
 
 create-ec2:
-				read -p "Security group name: " SEC_GROUP ; read -p "Subnet ID: " SUBNET_ID ; read -p "Keypair name: " KEYPAIR ; ansible-playbook -i inventory/localhost create_ec2.yml --extra-vars "security_group_name=$$SEC_GROUP subnet_id=$$SUBNET_ID keypair=$$KEYPAIR"
+				ansible-playbook -i inventory/localhost create_ec2.yml
 
 create-linode:
-				read -p "Droplet name: " NODE_ID ; ansible-playbook -i inventory/localhost create_linode.yml --extra-vars linode_name=$$NODE_ID
+				ansible-playbook -i inventory/localhost create_linode.yml
 
 osx-controller:
 				brew update && brew install ansible
@@ -37,7 +37,7 @@ password:
 				python -c "from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.encrypt(getpass.getpass())"
 
 provision:
-				read -p "Inventory: " INVENTORY ; read -p "New hostname: " NODE_HOSTNAME ; read -p "MySQL root password: " MYSQL_ROOT_PASS ; ansible-playbook -i inventory/$$INVENTORY setup_rails4_servers.yml --extra-vars "ansible_ssh_port=22 hostname=$$NODE_HOSTNAME mysql_root_pass=$$MYSQL_ROOT_PASS"
+				read -p "Inventory: " INVENTORY ; ansible-playbook -i inventory/$$INVENTORY setup_rails4_servers.yml --extra-vars "ansible_ssh_port=22"
 
 repo:
 				mkdir -p filter_plugins group_vars host_vars inventory library playbooks roles

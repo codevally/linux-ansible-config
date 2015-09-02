@@ -6,6 +6,13 @@
     vars:
       instance_type: t2.micro
       image: ami-47a23a30
+    vars_prompt:
+      - name: "security_group_name"
+        prompt: "Name of EC2 security group"
+      - name: "subnet_id"
+        prompt: "ID of VPC subnet"
+      - name: "keypair"
+        prompt: "Name of EC2 key pair"
     tasks:
       - local_action:
           module: ec2

@@ -3,6 +3,9 @@
   hosts: localhost
   connection: local
   gather_facts: False
+  vars_prompt:
+    - name: "linode_name"
+      prompt: "Linode name for new server"
   tasks:
     - local_action:
         module: linode

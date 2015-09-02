@@ -3,6 +3,9 @@
     hosts: localhost
     connection: local
     gather_facts: False
+    vars_prompt:
+      - name: "droplet_name"
+        prompt: "Droplet name for new server"
     tasks:
       - digital_ocean: >
           state=present

@@ -17,12 +17,29 @@
     - user_name: deploy
     - user_full_name: "Deployment account"
     - user_id: 1001
-    - user_password_sha512: "CHANGEME"
     - monit_email_recipient: "CHANGEME@DOMAIN.EXAMPLE"
     - monit_email_sender: "CHANGEME@DOMAIN.EXAMPLE"
-    - monit_email_sender_password: "CHANGEME"
     - monit_email_sender_host: "smtp.gmail.com"
     - monit_email_sender_port: 587
-    - monit_password: "CHANGEME"
     - mysql_version: "5.6"
-    - mysql_root_db_password: "{{ mysql_root_pass }}"
+  vars_prompt:
+    - name: "hostname"
+      prompt: "New full hostname"
+    - name: "monit_password"
+      prompt: "Password for Monit access"
+      private: yes
+      confirm: yes
+    - name: "monit_email_sender_password"
+      prompt: "Email password for Monit messages"
+      private: yes
+      confirm: yes
+    - name: "mysql_root_db_password"
+      prompt: "Password for MySQL root"
+      private: yes
+      confirm: yes
+    - name: "user_password_sha512"
+      prompt: "Password for UNIX user account"
+      private: yes
+      encrypt: "sha512_crypt"
+      confirm: yes
+      salt_size: 8

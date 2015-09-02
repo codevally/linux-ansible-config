@@ -11,17 +11,20 @@
       rvm1_rubies:
         - "{{ app_ruby_version }}"
     - rails4_app
+    - rails4_app_db
   vars:
-    - default_locale: en_GB.UTF-8
-    - system_timezone: Europe/London
-    - custom_ssh_port: 53124
     - app_name: "dummy_app_rails"
     - app_hostname: "dummyapp.example"
     - app_environment: "production"
     - app_user_name: "deploy"
     - app_db_username: "dummy_app_prd"
-    - app_db_password: "CHANGEME"
     - app_db_name: "dummy_app_prd"
-    - app_ruby_version: "ruby-2.2.2"
+    - app_ruby_version: "ruby-2.2.3"
     - app_gemset: "myapp_prd"
-    - app_workers: 3
+  vars_prompt:
+    - name: "app_db_password"
+      prompt: "Password for MySQL account"
+      private: yes
+      confirm: yes
+    - name: "app_workers"
+      prompt: "No. of delayed_job workers (0 for none)"
