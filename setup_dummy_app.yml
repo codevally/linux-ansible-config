@@ -28,3 +28,5 @@
       confirm: yes
     - name: "app_workers"
       prompt: "No. of delayed_job workers (0 for none)"
+      private: no
+

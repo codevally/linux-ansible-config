@@ -6,13 +6,17 @@
     vars:
       instance_type: t2.micro
       image: ami-47a23a30
+      region: eu-west-1
     vars_prompt:
       - name: "security_group_name"
         prompt: "Name of EC2 security group"
+        private: no
       - name: "subnet_id"
         prompt: "ID of VPC subnet"
+        private: no
       - name: "keypair"
         prompt: "Name of EC2 key pair"
+        private: no
     tasks:
       - local_action:
           module: ec2
@@ -20,6 +24,7 @@
           group: "{{ security_group_name }}"
           instance_type: "{{ instance_type }}"
           image: "{{ image }}"
+          region: "{{ region }}"
           vpc_subnet_id: "{{ subnet_id }}"
           wait: true
-          assign_public_ip: yes
+          assign_public_ip: no
