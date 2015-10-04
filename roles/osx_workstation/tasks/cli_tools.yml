@@ -7,3 +7,4 @@
       - nmap
       - node
       - pyenv
+      - pyenv-virtualenv
