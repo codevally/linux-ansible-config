@@ -1,6 +1,7 @@
 ---
   - name: ensure presence of Homebrew Cask
     homebrew: name="caskroom/cask/brew-cask" state=present
+    
   - name: ensure required desktop applications
     homebrew_cask: name={{ item }} state=present
     with_items:

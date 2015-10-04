@@ -1,0 +1,6 @@
+---
+  - name: ensure Python command-line utilities
+    homebrew: name={{ item }} state=present
+    with_items:
+      - pyenv
+      - pyenv-virtualenv

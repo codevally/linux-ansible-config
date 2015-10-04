@@ -1,10 +1,7 @@
 ---
-  - name: ensure command-line utilities
+  - name: ensure command-line administration utilities
     homebrew: name={{ item }} state=present
     with_items:
       - ansible
       - git
       - nmap
-      - node
-      - pyenv
-      - pyenv-virtualenv
