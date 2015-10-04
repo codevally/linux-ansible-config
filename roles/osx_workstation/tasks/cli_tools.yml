@@ -6,5 +6,4 @@
       - git
       - nmap
       - node
-  - name: ensure Ant for Android Development
-    homebrew: name=ant state=present
+      - pyenv

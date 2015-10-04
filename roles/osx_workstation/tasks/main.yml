@@ -14,6 +14,6 @@
     - '/Users/{{ local_user_id }}/Documents/code/pkg'
     - '/Users/{{ local_user_id }}/Documents/code/src'
 
-- include: desktop_apps.yml
 - include: cli_tools.yml
+- include: desktop_apps.yml
 - include: mysql_server.yml
