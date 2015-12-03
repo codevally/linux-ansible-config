@@ -14,14 +14,20 @@
     - rails4_app_db
   vars:
     - app_name: "EXAMPLE_app_rails"
-    - app_hostname: "EXAMPLEAPP.example"
-    - app_environment: "production"
     - app_user_name: "CHANGEME"
-    - app_db_username: "EXAMPLE_app_prd"
-    - app_db_name: "EXAMPLE_app_prd"
+    - app_db_username: "{{ app_db_name }}"
     - app_ruby_version: "ruby-2.2.3"
-    - app_gemset: "EXAMPLE_prd"
+    - app_gemset: "EXAMPLE_app_rails"
   vars_prompt:
+    - name: "app_environment"
+      prompt: "Rails environment for application (staging/uat/production)"
+      private: no
+    - name: "app_hostname"
+      prompt: "Full DNS name for application"
+      private: no
+    - name: "app_db_name"
+      prompt: "Database name for application"
+      private: no
     - name: "app_db_password"
       prompt: "MySQL account password for application"
       private: yes
@@ -29,4 +35,3 @@
     - name: "app_workers"
       prompt: "No. of delayed_job workers (0 for none)"
       private: no
-
