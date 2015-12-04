@@ -4,4 +4,3 @@
   - include: ruby_dependencies.yml
   - include: imagemagick.yml
   - include: passenger.yml
-  - include: ssl_dh_params.yml

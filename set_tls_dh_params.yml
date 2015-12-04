@@ -1,0 +1,17 @@
+---
+- name: set custom DH params for TLS
+  hosts: all
+  tasks:
+    - name: ensure custom DHE key for stronger nginx TLS
+      shell: openssl dhparam -out dhparam.pem 4096 > /etc/ssl/private/dhparam.pem creates="/etc/ssl/private/dhparam.pem"
+      become: yes
+      async: 1800
+      poll: 20
+      tags:
+        - dhe
+
+    - name: ensure permissions on custom DHE key
+      file: path=/etc/ssl/private/dhparam.pem state=file owner=root group=root mode=0600
+      become: yes
+      tags:
+        - dhe
