@@ -23,8 +23,9 @@
     - monit_email_sender_port: 587
     - mysql_version: "5.6"
   vars_prompt:
-    - name: "hostname"
+    - name: "machine_hostname"
       prompt: "New full hostname"
+      private: no
     - name: "monit_password"
       prompt: "Password for Monit access"
       private: yes

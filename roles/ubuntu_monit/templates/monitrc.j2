@@ -63,7 +63,7 @@ set mailserver {{ monit_email_sender_host }} port {{ monit_email_sender_port }} 
       basedir /var/lib/monit/events # set the base directory where events will be stored
       slots 100                     # optionally limit the queue size
 
-set mail-format { from: monit@{{ ansible_hostname }} }
+set mail-format { from: monit@{{ machine_hostname }} }
 #
 #
 ## You can set alert recipients whom will receive alerts if/when a
