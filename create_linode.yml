@@ -6,11 +6,12 @@
   vars_prompt:
     - name: "linode_name"
       prompt: "Linode name for new server"
+      private: no
   tasks:
     - local_action:
         module: linode
         api_key: "{{ lookup('env', 'API_KEY_LINODE') }}"
-        name: {{ linode_name }}
+        name: "{{ linode_name }}"
         plan: 1
         datacenter: 7
         distribution: 124
