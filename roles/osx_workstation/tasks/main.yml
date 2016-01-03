@@ -15,6 +15,7 @@
     - '/Users/{{ local_user_id }}/Documents/code/src'
 
 - include: cli_admin_tools.yml
+- include: cli_nodejs_tools.yml
 - include: cli_python_tools.yml
 - include: ruby_dependencies.yml
 - include: desktop_apps.yml
