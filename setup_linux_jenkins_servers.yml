@@ -1,0 +1,13 @@
+---
+- name: Set up Linux Jenkins servers
+  hosts: all
+  become: yes
+  roles:
+    - geerlingguy.jenkins
+  vars:
+    - jenkins_repo_url: deb http://pkg.jenkins-ci.org/debian-stable binary/
+    - jenkins_repo_key_url: http://pkg.jenkins-ci.org/debian-stable/jenkins-ci.org.key
+  vars_prompt:
+    - name: "jenkins_hostname"
+      prompt: "DNS alias for Jenkins instance"
+      private: no

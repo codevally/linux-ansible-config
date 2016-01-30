@@ -28,6 +28,7 @@ osx-controller:
 				pip install --user dopy
 				pip install --user pycurl
 				pip install --user passlib
+				ansible-galaxy install geerlingguy.jenkins
 				ansible-galaxy install rvm_io.rvm1-ruby
 
 osx-workstation:
