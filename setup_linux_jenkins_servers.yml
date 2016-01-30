@@ -7,6 +7,11 @@
   vars:
     - jenkins_repo_url: deb http://pkg.jenkins-ci.org/debian-stable binary/
     - jenkins_repo_key_url: http://pkg.jenkins-ci.org/debian-stable/jenkins-ci.org.key
+    - jenkins_http_port: 8080
+    - jenkins_plugins:
+       - git
+       - sonar
+       - ssh
   vars_prompt:
     - name: "jenkins_hostname"
       prompt: "DNS alias for Jenkins instance"
