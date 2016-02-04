@@ -16,7 +16,7 @@
     - app_name: "EXAMPLE_app_rails"
     - app_user_name: "CHANGEME"
     - app_db_username: "{{ app_db_name }}"
-    - app_ruby_version: "ruby-2.2.3"
+    - app_ruby_version: "ruby-2.3.0"
     - app_gemset: "EXAMPLE_app_rails"
   vars_prompt:
     - name: "app_environment"
