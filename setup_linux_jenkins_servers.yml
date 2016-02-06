@@ -4,13 +4,28 @@
   become: yes
   roles:
     - geerlingguy.jenkins
+  tasks:
+    - name: add APT key for Docker
+      apt_key: keyserver=p80.pool.sks-keyservers.net id=58118E89F3A912897C070ADBF76221572C52609D
+    - name: add Docker repository
+      apt_repository: repo='deb https://apt.dockerproject.org/repo ubuntu-trusty main' state=present
+    - name: install Docker
+      apt: name={{ item }} state=present
+      with_items:
+        - apt-transport-https
+        - ca-certificates
+        - docker
+    - name: add Jenkins user to docker group
+      user: name=jenkins groups=docker append=yes
   vars:
     - jenkins_repo_url: deb http://pkg.jenkins-ci.org/debian-stable binary/
     - jenkins_repo_key_url: http://pkg.jenkins-ci.org/debian-stable/jenkins-ci.org.key
     - jenkins_http_port: 8080
     - jenkins_plugins:
+       - amazon-ecr
        - docker-build-publish
        - git
+       - greenballs
        - ssh
   vars_prompt:
     - name: "jenkins_hostname"
