@@ -1,0 +1,10 @@
+---
+  - name: Create network for Elastic Beanstalk
+    hosts: localhost
+    connection: local
+    gather_facts: False
+    roles:
+      - aws_eb_net
+    vars_prompt:
+      - name: "aws_region"
+        prompt: "Name of AWS region, e.g. eu-west-1"
