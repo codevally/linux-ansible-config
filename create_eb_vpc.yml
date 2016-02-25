@@ -4,7 +4,7 @@
     connection: local
     gather_facts: False
     roles:
-      - aws_eb_net
+      - aws_eb_vpc
     vars_prompt:
       - name: "vpc_name"
         prompt: "Name of VPC"
