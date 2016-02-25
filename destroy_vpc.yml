@@ -1,0 +1,15 @@
+---
+  - name: Delete Virtual Private Cloud
+    hosts: localhost
+    connection: local
+    gather_facts: False
+    tasks:
+      - name: delete VPC
+        ec2_vpc:
+          state: absent
+          vpc_id: "{{ vpc_id }}"
+          resource_tags: { "Name": "" }
+    vars_prompt:
+      - name: "vpc_id"
+        prompt: "ID of VPC"
+        private: no

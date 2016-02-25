@@ -1,10 +1,14 @@
 ---
-  - name: Create network for Elastic Beanstalk
+  - name: Create Virtual Private Cloud for Elastic Beanstalk
     hosts: localhost
     connection: local
     gather_facts: False
     roles:
       - aws_eb_net
     vars_prompt:
+      - name: "vpc_name"
+        prompt: "Name of VPC"
+        private: no
       - name: "aws_region"
-        prompt: "Name of AWS region, e.g. eu-west-1"
+        prompt: "ID of AWS region, e.g. eu-west-1"
+        private: no
