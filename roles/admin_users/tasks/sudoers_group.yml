@@ -1,4 +1,4 @@
 ---
-  - name: admins | ensure group for become_user: "{{ app_user_name }}" is present
-    group: name=become_user: "{{ app_user_name }}" state=present
+  - name: admins | ensure group for sudoers is present
+    group: name=sudoers state=present
     become: yes
