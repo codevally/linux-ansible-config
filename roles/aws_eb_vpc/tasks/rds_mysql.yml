@@ -12,6 +12,7 @@
       backup_window: "21:05-22:05"
       aws_region: "{{ aws_region }}"
       multi_zone: yes
+      publicly_accessible: yes
       subnet: "subnets_{{ app_name }}"
       vpc_security_groups: "{{ security_group_db.group_id }}"
       username: "dba_{{ app_name }}"
