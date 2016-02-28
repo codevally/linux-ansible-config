@@ -4,20 +4,20 @@
     ec2_vpc:
       state: present
       cidr_block: 172.31.1.0/24
-      resource_tags: { "Name": "{{ vpc_name }}", "Environment":"Development" }
+      resource_tags: { "Name": "{{ vpc_name }}", "Environment":"{{ env_name }}" }
       subnets:
         - cidr: 172.31.1.0/26
           az: "{{ aws_region }}a"
-          resource_tags: { "Environment":"Dev", "Tier" : "Web" }
+          resource_tags: { "Environment":"{{ env_name }}", "Tier" : "Web" }
         - cidr: 172.31.1.64/26
           az: "{{ aws_region }}b"
-          resource_tags: { "Environment":"Dev", "Tier" : "Web" }
+          resource_tags: { "Environment":"{{ env_name }}", "Tier" : "Web" }
         - cidr: 172.31.1.128/26
           az: "{{ aws_region }}c"
-          resource_tags: { "Environment":"Dev", "Tier" : "Web" }
+          resource_tags: { "Environment":"{{ env_name }}", "Tier" : "Web" }
         - cidr: 172.31.1.192/26
           az: "{{ aws_region }}c"
-          resource_tags: { "Environment":"Dev", "Tier" : "Web" }
+          resource_tags: { "Environment":"{{ env_name }}", "Tier" : "Web" }
       internet_gateway: True
       route_tables:
         - subnets:

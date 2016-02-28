@@ -3,7 +3,7 @@
     ec2_group:
       vpc_id: "{{ vpc.vpc_id }}"
       name: "{{ vpc_name }}-sec-web"
-      description: "Security group for Web applications"
+      description: "Security group for {{ app_name }} {{ env_name }}"
       rules:
         - proto: tcp
           from_port: 80

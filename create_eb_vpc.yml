@@ -5,6 +5,9 @@
     gather_facts: False
     roles:
       - aws_eb_vpc
+    vars:
+      - app_name: "test5"
+      - env_name: "Development"
     vars_prompt:
       - name: "vpc_name"
         prompt: "Name of VPC"
@@ -12,3 +15,6 @@
       - name: "aws_region"
         prompt: "ID of AWS region, e.g. eu-west-1"
         private: no
+      - name: "dba_password"
+        prompt: "Admin password for RDS database instance"
+        private: yes

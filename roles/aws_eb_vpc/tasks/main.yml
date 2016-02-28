@@ -1,3 +1,4 @@
 ---
   - include: vpc.yml
   - include: secgroup_web.yml
+  - include: rds_mysql.yml
