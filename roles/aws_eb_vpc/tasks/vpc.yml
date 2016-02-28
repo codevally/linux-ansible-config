@@ -3,29 +3,41 @@
     register: vpc
     ec2_vpc:
       state: present
-      cidr_block: 172.31.1.0/24
+      cidr_block: 10.0.0.0/16
       resource_tags: { "Name": "{{ vpc_name }}", "Environment":"{{ env_name }}" }
       subnets:
-        - cidr: 172.31.1.0/26
+        - cidr: 10.0.1.0/24
           az: "{{ aws_region }}a"
-          resource_tags: { "Environment":"{{ env_name }}", "Tier" : "Web" }
-        - cidr: 172.31.1.64/26
+          resource_tags: { "Name" : "Web A", "Environment" : "{{ env_name }}", "Tier" : "Web" }
+        - cidr: 10.0.2.0/24
+          az: "{{ aws_region }}a"
+          resource_tags: { "Name" : "App A", "Environment" : "{{ env_name }}", "Tier" : "App" }
+        - cidr: 10.0.3.0/24
+          az: "{{ aws_region }}a"
+          resource_tags: { "Name" : "Database A", "Environment" : "{{ env_name }}", "Tier" : "Database" }
+        - cidr: 10.0.4.0/24
           az: "{{ aws_region }}b"
-          resource_tags: { "Environment":"{{ env_name }}", "Tier" : "Web" }
-        - cidr: 172.31.1.128/26
-          az: "{{ aws_region }}c"
-          resource_tags: { "Environment":"{{ env_name }}", "Tier" : "Web" }
-        - cidr: 172.31.1.192/26
-          az: "{{ aws_region }}c"
-          resource_tags: { "Environment":"{{ env_name }}", "Tier" : "Web" }
+          resource_tags: { "Name" : "Web B", "Environment" : "{{ env_name }}", "Tier" : "Web" }
+        - cidr: 10.0.5.0/24
+          az: "{{ aws_region }}b"
+          resource_tags: { "Name" : "App B", "Environment" : "{{ env_name }}", "Tier" : "App" }
+        - cidr: 10.0.6.0/24
+          az: "{{ aws_region }}b"
+          resource_tags: { "Name" : "Database B", "Environment" : "{{ env_name }}", "Tier" : "Database" }
       internet_gateway: True
       route_tables:
         - subnets:
-            - 172.31.1.0/26
-            - 172.31.1.64/26
-            - 172.31.1.128/26
-            - 172.31.1.192/26
+            - 10.0.1.0/24
+            - 10.0.4.0/24
           routes:
             - dest: 0.0.0.0/0
               gw: igw
       region: "{{ aws_region }}"
+  - name: Find the database subnet for zone A
+    set_fact: rds_subnet_a_id="{{ item.id }}"
+    when: item.resource_tags.Name == "Database A"
+    with_items: vpc.subnets
+  - name: Find the database subnet for zone B
+    set_fact: rds_subnet_b_id="{{ item.id }}"
+    when: item.resource_tags.Name == "Database B"
+    with_items: vpc.subnets

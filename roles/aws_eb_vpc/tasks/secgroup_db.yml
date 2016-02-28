@@ -1,0 +1,12 @@
+---
+  - name: ensure EC2 security group for database instances
+    register: security_group_db
+    ec2_group:
+      vpc_id: "{{ vpc.vpc_id }}"
+      name: "sg_{{ app_name }}_db"
+      description: "Security group for {{ app_name }} RDS"
+      rules:
+        - proto: tcp
+          from_port: 3306
+          to_port: 3306
+          cidr_ip: 0.0.0.0/0

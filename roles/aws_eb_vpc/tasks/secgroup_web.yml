@@ -1,8 +1,9 @@
 ---
   - name: ensure EC2 security group for Web applications
+    register: security_group_web
     ec2_group:
       vpc_id: "{{ vpc.vpc_id }}"
-      name: "{{ vpc_name }}-sec-web"
+      name: "sg_{{ app_name }}_{{ env_name }}_web"
       description: "Security group for {{ app_name }} {{ env_name }}"
       rules:
         - proto: tcp
