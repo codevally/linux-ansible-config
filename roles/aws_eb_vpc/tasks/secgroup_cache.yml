@@ -1,0 +1,13 @@
+---
+  - name: ensure EC2 security group for Elasticache instances
+    register: security_group_cache
+    ec2_group:
+      vpc_id: "{{ vpc.vpc_id }}"
+      name: "{{ app_name }}-{{ env_name }}-elc"
+      description: "Security group for {{ app_name }} Elasticache"
+      rules:
+        - proto: tcp
+          from_port: 11211
+          to_port: 11211
+          group_id: "{{ security_group_app.group_id }}"
+    when: memcached_nodes|int > 0

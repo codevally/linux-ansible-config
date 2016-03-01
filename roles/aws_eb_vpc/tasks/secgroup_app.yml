@@ -1,0 +1,29 @@
+---
+  - name: ensure EC2 security group for Web applications
+    register: security_group_app
+    ec2_group:
+      vpc_id: "{{ vpc.vpc_id }}"
+      name: "{{ app_name }}-{{ env_name }}-app"
+      description: "App servers for {{ app_name }} {{ env_name }}"
+      rules:
+        - proto: tcp
+          from_port: 80
+          to_port: 80
+          cidr_ip: 0.0.0.0/0
+        - proto: tcp
+          from_port: 22
+          to_port: 22
+          cidr_ip: 10.0.0.0/0
+        - proto: tcp
+          from_port: 443
+          to_port: 443
+          cidr_ip: 0.0.0.0/0
+      rules_egress:
+        - proto: tcp
+          from_port: 80
+          to_port: 80
+          cidr_ip: 0.0.0.0/0
+        - proto: tcp
+          from_port: 443
+          to_port: 443
+          cidr_ip: 0.0.0.0/0

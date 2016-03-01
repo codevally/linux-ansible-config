@@ -2,7 +2,7 @@
   - name: ensure RDS MySQL instance
     rds:
       command: create
-      instance_name: "{{ app_name }}"
+      instance_name: "{{ app_name }}-db"
       db_engine: MySQL
       engine_version: "5.6.27"
       size: 10
@@ -13,11 +13,9 @@
       aws_region: "{{ aws_region }}"
       multi_zone: yes
       publicly_accessible: yes
-      subnet: "subnets_{{ app_name }}"
+      subnet: "nets-{{ app_name }}-db"
       vpc_security_groups: "{{ security_group_db.group_id }}"
-      username: "dba_{{ app_name }}"
+      username: "dbadmin"
       password: "{{ dba_password }}"
-      db_name: "{{ app_name }}_{{ env_name }}"
       tags:
-        Environment: "{{ env_name }}"
         Application: "{{ app_name }}"

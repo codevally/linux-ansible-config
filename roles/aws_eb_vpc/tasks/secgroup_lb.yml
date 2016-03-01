@@ -1,10 +1,10 @@
 ---
-  - name: ensure EC2 security group for Web applications
-    register: security_group_web
+  - name: ensure EC2 security group for Web load-balancers
+    register: security_group_lb
     ec2_group:
       vpc_id: "{{ vpc.vpc_id }}"
-      name: "sg_{{ app_name }}_{{ env_name }}_web"
-      description: "Security group for {{ app_name }} {{ env_name }}"
+      name: "{{ app_name }}-{{ env_name }}-lb"
+      description: "Load balancers for {{ app_name }} {{ env_name }}"
       rules:
         - proto: tcp
           from_port: 80

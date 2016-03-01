@@ -3,7 +3,7 @@
     register: security_group_db
     ec2_group:
       vpc_id: "{{ vpc.vpc_id }}"
-      name: "sg_{{ app_name }}_db"
+      name: "{{ app_name }}-db"
       description: "Security group for {{ app_name }} RDS"
       rules:
         - proto: tcp

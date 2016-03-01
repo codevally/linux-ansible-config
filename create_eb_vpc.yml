@@ -6,13 +6,13 @@
     roles:
       - aws_eb_vpc
     vars:
-      - vpc_name: "vpc_{{app_name}}_{{ env_name }}"
+      - vpc_name: "vpc-{{app_name}}-{{ env_name }}"
     vars_prompt:
       - name: "app_name"
         prompt: "Name of app"
         private: no
       - name: "env_name"
-        prompt: "Name of environment, e.g. development"
+        prompt: "Name of environment, e.g. staging"
         private: no
       - name: "aws_region"
         prompt: "ID of AWS region, e.g. eu-west-1"
@@ -20,3 +20,6 @@
       - name: "dba_password"
         prompt: "Master password for RDS database instance"
         private: yes
+      - name: "memcached_nodes"
+        prompt: "Number of Memcached nodes, e.g. 0"
+        private: no

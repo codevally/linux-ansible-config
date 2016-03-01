@@ -2,10 +2,11 @@
   - name: ensure RDS subnet group
     register: subnet_group_rds
     rds_subnet_group:
-      name: "subnets_{{ app_name }}"
-      description: "RDS subnet group for {{ app_name}}"
+      name: "nets-{{ app_name }}-db"
+      description: "RDS subnet group for {{ app_name }}"
       region: "{{ aws_region }}"
       state: present
       subnets:
         - "{{ rds_subnet_a_id }}"
         - "{{ rds_subnet_b_id }}"
+        - "{{ rds_subnet_c_id }}"
