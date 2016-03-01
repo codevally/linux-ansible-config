@@ -2,6 +2,7 @@
 thumbs.db
 
 # Ansible
+*.retry
 ansible.cfg
 inventory/aws
 inventory/digital_ocean
