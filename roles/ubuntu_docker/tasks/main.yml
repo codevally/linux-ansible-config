@@ -1,0 +1,19 @@
+---
+  - name: ensure APT key for Docker
+    apt_key: keyserver=p80.pool.sks-keyservers.net id=58118E89F3A912897C070ADBF76221572C52609D
+    become: yes
+  - name: ensure Docker APT package source
+    apt_repository: repo='deb https://apt.dockerproject.org/repo ubuntu-trusty main' state=present
+    become: yes
+  - name: update package index
+    apt: update-cache=yes
+    become: yes
+  - name: ensure Docker pre-requisites
+    apt: name={{ item }} state=present
+    become: yes
+    with_items:
+      - apt-transport-https
+      - ca-certificates
+  - name: ensure Docker Engine
+    apt: name=docker-engine=1.9.1-0 state=present
+    become: yes

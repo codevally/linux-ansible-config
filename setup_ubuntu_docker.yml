@@ -1,0 +1,5 @@
+---
+- name: Set up Docker servers
+  hosts: docker-servers
+  roles:
+    - ubuntu_docker
