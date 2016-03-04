@@ -26,6 +26,16 @@
     - name: "machine_hostname"
       prompt: "New full hostname"
       private: no
+    - name: "user_password_sha512"
+      prompt: "Password for UNIX user account"
+      private: yes
+      encrypt: "sha512_crypt"
+      confirm: yes
+      salt_size: 8
+    - name: "mysql_root_db_password"
+      prompt: "Password for MySQL root"
+      private: yes
+      confirm: yes
     - name: "monit_password"
       prompt: "Password for Monit access"
       private: yes
@@ -34,13 +44,3 @@
       prompt: "Email password for Monit messages"
       private: yes
       confirm: yes
-    - name: "mysql_root_db_password"
-      prompt: "Password for MySQL root"
-      private: yes
-      confirm: yes
-    - name: "user_password_sha512"
-      prompt: "Password for UNIX user account"
-      private: yes
-      encrypt: "sha512_crypt"
-      confirm: yes
-      salt_size: 8
