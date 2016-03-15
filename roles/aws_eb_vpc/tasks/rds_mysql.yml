@@ -19,3 +19,5 @@
       password: "{{ dba_password }}"
       tags:
         Application: "{{ app_name }}"
+        Project: "{{ proj_name }}"
+        Tier: "Database"

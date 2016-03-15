@@ -4,7 +4,7 @@
     ec2_group:
       vpc_id: "{{ vpc.vpc_id }}"
       name: "{{ app_name }}-{{ env_name }}-lb"
-      description: "Load balancers for {{ app_name }} {{ env_name }}"
+      description: "Security group for {{ app_name }} {{ env_name }} load balancers"
       rules:
         - proto: tcp
           from_port: 80

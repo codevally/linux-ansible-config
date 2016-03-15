@@ -4,35 +4,35 @@
     ec2_vpc:
       state: present
       cidr_block: 10.0.0.0/16
-      resource_tags: { "Name": "{{ vpc_name }}", "Environment":"{{ env_name }}" }
+      resource_tags: { "Name": "{{ vpc_name }}", "Environment":"{{ env_name }}", "Project":"{{ proj_name }}" }
       subnets:
         - cidr: 10.0.1.0/24
           az: "{{ aws_region }}a"
-          resource_tags: { "Name" : "Web A", "Environment" : "{{ env_name }}", "Tier" : "Web" }
+          resource_tags: { "Name" : "Web A", "Environment" : "{{ env_name }}", "Tier" : "Web", "Project":"{{ proj_name }}" }
         - cidr: 10.0.2.0/24
           az: "{{ aws_region }}a"
-          resource_tags: { "Name" : "App A", "Environment" : "{{ env_name }}", "Tier" : "App" }
+          resource_tags: { "Name" : "App A", "Environment" : "{{ env_name }}", "Tier" : "App", "Project":"{{ proj_name }}" }
         - cidr: 10.0.3.0/24
           az: "{{ aws_region }}a"
-          resource_tags: { "Name" : "Database A", "Environment" : "{{ env_name }}", "Tier" : "Database" }
+          resource_tags: { "Name" : "Database A", "Environment" : "{{ env_name }}", "Tier" : "Database", "Project":"{{ proj_name }}" }
         - cidr: 10.0.4.0/24
           az: "{{ aws_region }}b"
-          resource_tags: { "Name" : "Web B", "Environment" : "{{ env_name }}", "Tier" : "Web" }
+          resource_tags: { "Name" : "Web B", "Environment" : "{{ env_name }}", "Tier" : "Web", "Project":"{{ proj_name }}" }
         - cidr: 10.0.5.0/24
           az: "{{ aws_region }}b"
-          resource_tags: { "Name" : "App B", "Environment" : "{{ env_name }}", "Tier" : "App" }
+          resource_tags: { "Name" : "App B", "Environment" : "{{ env_name }}", "Tier" : "App", "Project":"{{ proj_name }}" }
         - cidr: 10.0.6.0/24
           az: "{{ aws_region }}b"
-          resource_tags: { "Name" : "Database B", "Environment" : "{{ env_name }}", "Tier" : "Database" }
+          resource_tags: { "Name" : "Database B", "Environment" : "{{ env_name }}", "Tier" : "Database", "Project":"{{ proj_name }}" }
         - cidr: 10.0.7.0/24
           az: "{{ aws_region }}c"
-          resource_tags: { "Name" : "Web C", "Environment" : "{{ env_name }}", "Tier" : "Web" }
+          resource_tags: { "Name" : "Web C", "Environment" : "{{ env_name }}", "Tier" : "Web", "Project":"{{ proj_name }}" }
         - cidr: 10.0.8.0/24
           az: "{{ aws_region }}c"
-          resource_tags: { "Name" : "App C", "Environment" : "{{ env_name }}", "Tier" : "App" }
+          resource_tags: { "Name" : "App C", "Environment" : "{{ env_name }}", "Tier" : "App", "Project":"{{ proj_name }}" }
         - cidr: 10.0.9.0/24
           az: "{{ aws_region }}c"
-          resource_tags: { "Name" : "Database C", "Environment" : "{{ env_name }}", "Tier" : "Database" }
+          resource_tags: { "Name" : "Database C", "Environment" : "{{ env_name }}", "Tier" : "Database", "Project":"{{ proj_name }}" }
       internet_gateway: True
       route_tables:
         - subnets:

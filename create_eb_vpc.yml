@@ -1,5 +1,5 @@
 ---
-  - name: Create Virtual Private Cloud for Elastic Beanstalk
+  - name: Create AWS Virtual Private Cloud
     hosts: localhost
     connection: local
     gather_facts: False
@@ -8,6 +8,9 @@
     vars:
       - vpc_name: "vpc-{{app_name}}-{{ env_name }}"
     vars_prompt:
+      - name: "proj_name"
+        prompt: "Name of project"
+        private: no
       - name: "app_name"
         prompt: "Name of app"
         private: no
