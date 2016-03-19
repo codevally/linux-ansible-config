@@ -8,7 +8,7 @@
       size: 10
       instance_type: db.t2.micro
       maint_window: "Sun:22:15-Sun:23:15"
-      backup_retention: 30
+      backup_retention: 14
       backup_window: "21:05-22:05"
       aws_region: "{{ aws_region }}"
       multi_zone: yes
