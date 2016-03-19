@@ -4,12 +4,31 @@
     connection: local
     gather_facts: False
     tasks:
-      - name: delete VPC
-        ec2_vpc:
+      # - name: delete RDS instance
+      #   rds:
+      #     instance_name: "{{ app_name }}-db"
+      #     command: delete
+      - name: delete RDS subnet group
+        rds_subnet_group:
+          name: "nets-{{ app_name }}-db"
           state: absent
-          vpc_id: "{{ vpc_id }}"
-          resource_tags: { "Name": "" }
+      # - name: delete subnets and route tables from VPC
+      #   ec2_vpc:
+      #     vpc_id: "{{ vpc_id }}"
+      #     state: present
+      #     resource_tags: "{}"
+      #     subnets: []
+      #     internet_gateway: False
+      #     route_tables: []
+      #     wait: yes
+      # - name: delete VPC
+      #   ec2_vpc:
+      #     state: absent
+      #     vpc_id: "{{ vpc_id }}"
     vars_prompt:
       - name: "vpc_id"
         prompt: "ID of VPC"
+        private: no
+      - name: "app_name"
+        prompt: "Name of application"
         private: no
