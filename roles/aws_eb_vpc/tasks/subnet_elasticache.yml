@@ -1,5 +1,5 @@
 ---
-  - name: ensure subnet group for Elasticache
+  - name: ensure subnet group for Elasticache nodes
     elasticache_subnet_group:
       state: present
       name: "nets-{{ app_name }}-{{ env_name }}-cache"

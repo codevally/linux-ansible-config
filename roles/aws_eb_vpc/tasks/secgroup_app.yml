@@ -27,3 +27,13 @@
           from_port: 443
           to_port: 443
           cidr_ip: 0.0.0.0/0
+  - name: ensure tags on EC2 security group for Web applications
+    ec2_tag:
+      region: "{{ aws_region }}"
+      resource: "{{ security_group_app.group_id }}"
+      state: present
+      tags:
+        Application: "{{ app_name }}"
+        Environment: "{{ env_name }}"
+        Project: "{{ proj_name }}"
+        Tier: "web"

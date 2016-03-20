@@ -20,4 +20,4 @@
       tags:
         Application: "{{ app_name }}"
         Project: "{{ proj_name }}"
-        Tier: "Database"
+        Tier: "database"
