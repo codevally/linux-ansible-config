@@ -11,13 +11,3 @@
           to_port: 11211
           group_id: "{{ security_group_app.group_id }}"
     when: memcached_nodes|int > 0
-  - name: ensure tags on EC2 security group for Elasticache instances
-    ec2_tag:
-      region: "{{ aws_region }}"
-      resource: "{{ security_group_cache.group_id }}"
-      state: present
-      tags:
-        Application: "{{ app_name }}"
-        Environment: "{{ env_name }}"
-        Project: "{{ proj_name }}"
-        Tier: "cache"
