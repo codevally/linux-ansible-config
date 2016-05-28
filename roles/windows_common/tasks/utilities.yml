@@ -1,0 +1,3 @@
+---
+  - name: ensure Git
+    win_chocolatey: name=git state=present
