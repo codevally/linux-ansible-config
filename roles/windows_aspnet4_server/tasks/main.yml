@@ -1,0 +1,23 @@
+---
+  - name: ensure IIS
+    win_feature:
+      name: "Web-WebServer"
+      state: present
+      include_sub_features: yes
+  - name: ensure IIS management facilites
+    win_feature:
+      name: "Web-Mgmt-Tools"
+      state: present
+      include_sub_features: yes
+  - name: ensure .NET Framework
+    win_feature:
+      name: "AS-NET-Framework"
+  - name: ensure .NET Framework IIS integration
+    win_feature:
+      name: "AS-Web-Support"
+  - name: prevent legacy ASP support
+    win_feature: name="{{ item }}" state=absent
+    with_items:
+      - "Web-ASP"
+      - "Web-CGI"
+      - "Web-ASP-NET"

@@ -24,10 +24,11 @@ create-linode:
 osx-controller:
 				brew update && brew install ansible
 				sudo easy_install pip
-				pip install --user linode-python
 				pip install --user dopy
-				pip install --user pycurl
+				pip install --user linode-python
 				pip install --user passlib
+				pip install --user pycurl
+				pip install --user pywinrm
 				ansible-galaxy install geerlingguy.jenkins
 				ansible-galaxy install rvm_io.rvm1-ruby
 

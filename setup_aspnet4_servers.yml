@@ -1,0 +1,5 @@
+---
+- name: Set up Windows ASP.NET 4 servers
+  hosts: windows
+  roles:
+    - windows_aspnet4_server

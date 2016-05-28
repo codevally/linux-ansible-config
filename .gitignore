@@ -5,12 +5,14 @@ thumbs.db
 *.retry
 ansible.cfg
 inventory/aws
+inventory/azure
 inventory/digital_ocean
 inventory/sandbox
 group_vars/*/current_admin_accounts.yml
 group_vars/*/former_admin_accounts.yml
 group_vars/*/ssh_keys.yml
 group_vars/*/secrets.yml
+group_vars/windows.yml
 
 # Azure
 scripts/azure
