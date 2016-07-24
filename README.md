@@ -104,7 +104,7 @@ Email:
 
 ## License ##
 
-Copyright 2015, Stuart Ellis
+Copyright 2016, Stuart Ellis
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
