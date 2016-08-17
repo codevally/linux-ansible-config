@@ -15,5 +15,5 @@
       - apt-transport-https
       - ca-certificates
   - name: ensure Docker Engine
-    apt: name=docker-engine=1.9.1-0 state=present
+    apt: name=docker-engine=1.12.0-0 state=present
     become: yes
