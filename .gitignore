@@ -6,7 +6,7 @@ thumbs.db
 ansible.cfg
 inventory/aws
 inventory/azure
-inventory/digital_ocean
+inventory/digitalocean
 inventory/sandbox
 group_vars/*/current_admin_accounts.yml
 group_vars/*/former_admin_accounts.yml
