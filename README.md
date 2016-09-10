@@ -76,6 +76,10 @@ Note that Ubuntu 16.04 systems no longer include Python 2 by default. To manage 
 
     apt update && apt install python-minimal
 
+You also need to add an *ansible_python_interpreter* setting to the entries for these systems in your inventory: 
+
+    ansible_python_interpreter=/usr/bin/python
+
 ## Directory structure ##
 
 For convenience, the Ansible playbooks are in the root of this project.
