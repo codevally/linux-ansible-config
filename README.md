@@ -72,14 +72,6 @@ To create a new server on Digital Ocean using Ansible and the Digital Ocean vers
 
     make create-droplet
 
-Note that Ubuntu 16.04 systems no longer include Python 2 by default. To manage these systems with Ansible, install the *python-minimal* package:
-
-    apt update && apt install python-minimal
-
-You also need to add an *ansible_python_interpreter* setting to the entries for these systems in your inventory: 
-
-    ansible_python_interpreter=/usr/bin/python
-
 ## Directory structure ##
 
 For convenience, the Ansible playbooks are in the root of this project.
@@ -103,6 +95,21 @@ You must specify the SHA512 hashed version of a user password when you set it th
 Enter the password that you would like to use at the prompt.
 
 Use the [Vault](http://docs.ansible.com/playbooks_vault.html) feature to encrypt any YAML file that stores password variables.
+
+## Ubuntu 16.04 ##
+
+Ubuntu 16.04 systems no longer include Python 2 by default. Ansible currently uses Python 2 to manage UNIX-based systems, and cannot use Python 3 instead.
+
+The *bootstrap_ubuntu_ansible* playbook handles this by installing Python 2 using the *raw* method, so that it is available for you to run other Ansible commands and playbooks.
+
+Alternatively, install the *python-minimal* package:
+
+    apt update && apt install python-minimal
+
+Regardless of how you install Python2, you also need to add an *ansible_python_interpreter* setting to the entries for these systems in your inventory:
+
+    ansible_python_interpreter=/usr/bin/python2.7
+
 
 ## Contact ##
 

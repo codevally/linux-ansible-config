@@ -1,0 +1,8 @@
+---
+- name: Bootstrap Ansible on Ubuntu 16.04 and above
+  hosts: all
+  gather_facts: False
+  tasks:
+    - name: ensure Python 2
+      raw: test -e /usr/bin/python || (apt -qqy update && apt install -qy python-minimal)
+      become: true

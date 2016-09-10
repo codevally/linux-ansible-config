@@ -1,5 +1,5 @@
 ---
-  - include: ansible_prerequisites.yml
+  - include: ansible_requirements.yml
   - include: system_update.yml
   - include: system_hostname.yml
   - include: locale.yml

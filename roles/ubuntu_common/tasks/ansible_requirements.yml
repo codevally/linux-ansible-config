@@ -1,6 +1,6 @@
 ---
-  - name: ensure Python 2
-    apt: name=python-minimal state=present
+  - name: ensure Aptitude
+    apt: name=aptitude state=present
     become: yes
 
   - name: ensure Debian configuration utilities
