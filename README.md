@@ -1,6 +1,6 @@
 # Configuration for Ansible
 
-An experimental configuration for [Ansible](http://www.ansible.com).
+My playbooks for [Ansible](http://www.ansible.com).
 
 For a concise introduction to Ansible, [read this page](https://github.com/afroisalreadyinu/practical-ansible-intro) or [this screencast series](https://sysadmincasts.com/episodes/43-19-minutes-with-ansible-part-1-4).
 
@@ -68,9 +68,13 @@ To create a new Linode using Ansible and the Linode API:
 
     make create-linode
 
-To create a new server on Digital Ocean using Ansible and the Digital Ocean version 1 API:
+To create a new server on Digital Ocean using Ansible and the Digital Ocean version 2 API:
 
     make create-droplet
+
+Note that Ubuntu 16.04 systems no longer include Python 2 by default. To manage these systems with Ansible, install the *python-minimal* package:
+
+    apt update && apt install python-minimal
 
 ## Directory structure ##
 
