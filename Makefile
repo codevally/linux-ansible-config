@@ -24,6 +24,7 @@ create-linode:
 osx-controller:
 				brew update && brew install ansible
 				sudo easy_install pip
+				pip install --user ansible-lint
 				pip install --user boto
 				pip install --user dopy
 				pip install --user linode-python
