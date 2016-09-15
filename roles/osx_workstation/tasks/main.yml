@@ -1,23 +1,9 @@
 ---
 
-- name: ensure user SSH directory exists
-  file: name={{ item }} state=directory owner={{ local_user_id }} group=staff mode=0700
-  with_items:
-    - '/Users/{{ local_user_id }}/.ssh'
-
-- name: ensure user code directories exist
-  file: name={{ item }} state=directory
-  with_items:
-    - '/Users/{{ local_user_id }}/Documents/code'
-    - '/Users/{{ local_user_id }}/Documents/code/bin'
-    - '/Users/{{ local_user_id }}/Documents/code/doc'
-    - '/Users/{{ local_user_id }}/Documents/code/pkg'
-    - '/Users/{{ local_user_id }}/Documents/code/src'
-
+- include: user_directories.yml
 - include: cli_admin_tools.yml
 - include: cli_aws_tools.yml
 - include: cli_nodejs_tools.yml
-- include: cli_python_tools.yml
 - include: ruby_dependencies.yml
 - include: desktop_apps.yml
 - include: mysql_server.yml

@@ -1,0 +1,14 @@
+---
+  - name: ensure user SSH directory exists
+    file: name={{ item }} state=directory owner={{ local_user_id }} group=staff mode=0700
+    with_items:
+      - '/Users/{{ local_user_id }}/.ssh'
+
+  - name: ensure user code directories exist
+    file: name={{ item }} state=directory
+    with_items:
+      - '/Users/{{ local_user_id }}/Documents/code'
+      - '/Users/{{ local_user_id }}/Documents/code/bin'
+      - '/Users/{{ local_user_id }}/Documents/code/doc'
+      - '/Users/{{ local_user_id }}/Documents/code/pkg'
+      - '/Users/{{ local_user_id }}/Documents/code/src'
