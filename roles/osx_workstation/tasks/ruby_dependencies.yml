@@ -4,6 +4,7 @@
     with_items:
       - autoconf
       - automake
+      - gmp
       - libksba
       - libtool
       - libyaml
