@@ -25,7 +25,6 @@ macos-controller:
 				pip install --user linode-python
 				pip install --user passlib
 				pip install --user pycurl
-				pip install --user pywinrm
 				ansible-galaxy install geerlingguy.jenkins
 				ansible-galaxy install rvm_io.rvm1-ruby
 

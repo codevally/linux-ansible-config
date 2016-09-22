@@ -1,7 +1,0 @@
----
-- name: Set up Windows ASP.NET 4 servers
-  hosts: windows
-  roles:
-    - windows_common
-    - windows_aspnet4_server
-    - windows_update
