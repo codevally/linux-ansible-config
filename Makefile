@@ -1,11 +1,11 @@
 default: help
-.PHONY: create-droplet create-ec2 create-linode osx-controller osx-workstation password provision repo run
+.PHONY: create-droplet create-linode macos-controller macos-workstation password provision repo run
 
 help:
 				@echo "make create-droplet - create a standard Digital Ocean droplet"
 				@echo "make create-linode - create a standard Linode server"
-				@echo "make osx-controller - install Ansible on the current Mac OS X system"
-				@echo "make osx-workstation - use Ansible to set up the current Mac OS X system"
+				@echo "make macos-controller - install Ansible on the current MacOS system"
+				@echo "make macos-workstation - use Ansible to set up the current MacOS system"
 				@echo "make password - create a SHA512 hash from a given password"
 				@echo "make provision - set up a system as a Ruby on Rails server"
 				@echo "make repo - create the directory structure for an Ansible repository"
@@ -17,7 +17,7 @@ create-droplet:
 create-linode:
 				ansible-playbook -i inventory/localhost create_linode.yml
 
-osx-controller:
+macos-controller:
 				brew update && brew install ansible
 				sudo easy_install pip
 				pip install --user ansible-lint
@@ -29,8 +29,8 @@ osx-controller:
 				ansible-galaxy install geerlingguy.jenkins
 				ansible-galaxy install rvm_io.rvm1-ruby
 
-osx-workstation:
-				ansible-playbook -i inventory/localhost setup_osx_workstations.yml
+macos-workstation:
+				ansible-playbook -i inventory/localhost setup_macos_workstations.yml
 
 password:
 				python -c "from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.encrypt(getpass.getpass())"
