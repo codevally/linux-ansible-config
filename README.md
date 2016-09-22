@@ -1,12 +1,12 @@
-# Configuration for Ansible
+# Ansible Playbooks
 
-My playbooks for [Ansible](http://www.ansible.com).
+[Ansible](http://www.ansible.com) playbooks for Linux and MacOS.
 
 For a concise introduction to Ansible, [read this page](https://github.com/afroisalreadyinu/practical-ansible-intro) or [this screencast series](https://sysadmincasts.com/episodes/43-19-minutes-with-ansible-part-1-4).
 
 ## Set Up ##
 
-To set up Ansible on an OS X workstation:
+To set up Ansible on a MacOS workstation:
 
     make controller
     cp ./ansible.cfg.example ./ansible.cfg
@@ -58,17 +58,11 @@ Enter the password for the encrypted files when prompted.
 
 ### Creating a New Server with Ansible ###
 
-To create a new server on Amazon Web Services using Ansible and the EC2 API:
-
-    make create-ec2
-
-This relies on the presence of environment variables for the AWS access key and AWS secret key, e.g. AWS_ACCESS_KEY_ID and AWS_SECRET_KEY.
-
 To create a new Linode using Ansible and the Linode API:
 
     make create-linode
 
-To create a new server on Digital Ocean using Ansible and the Digital Ocean version 2 API:
+To create a new server on DigitalOcean using Ansible and the DigitalOcean version 2 API:
 
     make create-droplet
 
@@ -116,15 +110,3 @@ Regardless of how you install Python2, you also need to add an *ansible_python_i
 Email:
 
 <stuart@stuartellis.eu>
-
-## License ##
-
-The MIT License (MIT)
-
-Copyright (c) 2016 Stuart Ellis
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

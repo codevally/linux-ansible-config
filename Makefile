@@ -3,7 +3,6 @@ default: help
 
 help:
 				@echo "make create-droplet - create a standard Digital Ocean droplet"
-				@echo "make create-ec2 - create a standard Amazon EC2 server"
 				@echo "make create-linode - create a standard Linode server"
 				@echo "make osx-controller - install Ansible on the current Mac OS X system"
 				@echo "make osx-workstation - use Ansible to set up the current Mac OS X system"
@@ -15,9 +14,6 @@ help:
 create-droplet:
 				ansible-playbook -i inventory/localhost create_droplet.yml
 
-create-ec2:
-				ansible-playbook -i inventory/localhost create_ec2.yml
-
 create-linode:
 				ansible-playbook -i inventory/localhost create_linode.yml
 
@@ -25,7 +21,6 @@ osx-controller:
 				brew update && brew install ansible
 				sudo easy_install pip
 				pip install --user ansible-lint
-				pip install --user boto
 				pip install --user dopy
 				pip install --user linode-python
 				pip install --user passlib
