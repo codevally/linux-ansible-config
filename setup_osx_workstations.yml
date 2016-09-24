@@ -1,5 +1,5 @@
 ---
-- name: Setup MacOS workstations
+- name: Setup macOS workstations
   hosts: all
   roles:
     - osx_workstation

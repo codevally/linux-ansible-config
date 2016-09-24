@@ -4,8 +4,8 @@ default: help
 help:
 				@echo "make create-droplet - create a standard Digital Ocean droplet"
 				@echo "make create-linode - create a standard Linode server"
-				@echo "make macos-controller - install Ansible on the current MacOS system"
-				@echo "make macos-workstation - use Ansible to set up the current MacOS system"
+				@echo "make macos-controller - install Ansible on the current macOS system"
+				@echo "make macos-workstation - use Ansible to set up the current macOS system"
 				@echo "make password - create a SHA512 hash from a given password"
 				@echo "make provision - set up a system as a Ruby on Rails server"
 				@echo "make repo - create the directory structure for an Ansible repository"
