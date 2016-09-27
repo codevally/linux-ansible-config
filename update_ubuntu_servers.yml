@@ -5,13 +5,11 @@
     - name: upgrade system packages
       apt: upgrade=yes update-cache=yes cache_valid_time=86400
       become: yes
-
     - name: restart server
       command: shutdown -r now "Ansible updates triggered"
       become: yes
       async: 0
       poll: 0
       ignore_errors: true
-      
     - name: waiting for server to come back
       local_action: wait_for host={{ inventory_hostname }} state=started

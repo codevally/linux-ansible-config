@@ -1,5 +1,5 @@
 ---
-  - name: Create new Digital Ocean droplet
+  - name: Create new DigitalOcean droplet
     hosts: localhost
     connection: local
     gather_facts: False
@@ -8,7 +8,8 @@
         prompt: "Droplet name for new server, e.g. www-0001"
         private: no
     tasks:
-      - digital_ocean: >
+      - name: Request new droplet
+        digital_ocean: >
           state=present
           ssh_key_ids="{{ lookup('env', 'DO_SSH_KEY_ID') }}"
           name={{ droplet_name }}
