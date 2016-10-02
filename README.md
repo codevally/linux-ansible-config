@@ -109,4 +109,4 @@ Regardless of how you install Python2, you also need to add an *ansible_python_i
 
 Email:
 
-<stuart@stuartellis.eu>
+<stuart@stuartellis.name>
