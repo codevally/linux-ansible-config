@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/xenial64"
 
    # Hostname for the Vagrant machine
    config.vm.hostname = "vgt-ubuntu-0001.private"
@@ -51,7 +51,7 @@ Vagrant.configure(2) do |config|
     vb.gui = false
 
     # Customize the amount of memory on the VM:
-    vb.memory = "1024"
+    vb.memory = "1536"
   end
   #
   # View the documentation for the provider you are using for more
@@ -71,9 +71,9 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get install apache2
   # SHELL
 
-  config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "./setup_ubuntu_vagrant.yml"
-    ansible.groups = { "ubuntu_vagrant" => ["default"] }
-  end
+  #config.vm.provision "ansible" do |ansible|
+  #  ansible.playbook = "./setup_ubuntu_vagrant.yml"
+  #  ansible.groups = { "ubuntu_vagrant" => ["default"] }
+  #end
 
 end

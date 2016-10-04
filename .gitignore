@@ -19,3 +19,4 @@ scripts/azure
 
 # Vagrant
 .vagrant
+*.log
