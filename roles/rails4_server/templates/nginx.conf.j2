@@ -27,9 +27,8 @@ http {
 	# Maximum size of uploads
 	client_max_body_size 50m;
 
-	# Disable sending nginx version
-	server_tokens off;
-  passenger_show_version_in_header off;
+	# Disable sending server information
+  more_clear_headers 'Server' 'X-Powered-By' 'X-Runtime';
 
 	# server_names_hash_bucket_size 64;
 	# server_name_in_redirect off;
