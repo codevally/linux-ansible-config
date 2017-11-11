@@ -94,13 +94,13 @@ Use the [Vault](http://docs.ansible.com/playbooks_vault.html) feature to encrypt
 
 Ansible uses Python 2 to manage UNIX-based systems. Modern Linux systems have migrated to Python 3. Unfortunately, support for Ansible with Python 3 is currently experimental.
 
-To manage Debian-based Linux systems with Ansible you must ensure that the *python-minimal* package has been installed. Consider adding this to your *cloud-init* or preseed configurations.
+To access Debian-based Linux systems with Ansible you must ensure that the *python-minimal* package has been installed. You will also need to add the *python-apt* package to manage software. Consider adding these packages to your *cloud-init* or preseed configurations.
 
-To enable Ansible management for a running system, use the  *bootstrap_ubuntu_ansible* playbook. This installs the Python 2 package using the *raw* method, so that it is available for you to run other Ansible commands and playbooks.
+To enable Ansible management for a running system, use the  *bootstrap_ubuntu_ansible* playbook. This installs the Python 2 packages using the *raw* method, so that it is available for you to run other Ansible commands and playbooks.
 
-Alternatively, manually install the *python-minimal* package:
+Alternatively, manually install the packages:
 
-    apt update && apt install python-minimal
+    apt update && apt install python-minimal python-apt 
 
 ## Contact ##
 
