@@ -90,20 +90,17 @@ Enter the password that you would like to use at the prompt.
 
 Use the [Vault](http://docs.ansible.com/playbooks_vault.html) feature to encrypt any YAML file that stores password variables.
 
-## Ubuntu 16.04 ##
+## Enabling Ansible on Modern Linux Systems ##
 
-Ubuntu 16.04 systems no longer include Python 2 by default. Ansible currently uses Python 2 to manage UNIX-based systems, and cannot use Python 3 instead.
+Ansible uses Python 2 to manage UNIX-based systems. Modern Linux systems have migrated to Python 3. Unfortunately, support for Ansible with Python 3 is currently experimental.
 
-The *bootstrap_ubuntu_ansible* playbook handles this by installing Python 2 using the *raw* method, so that it is available for you to run other Ansible commands and playbooks.
+To manage Debian-based Linux systems with Ansible you must ensure that the *python-minimal* package has been installed. Consider adding this to your *cloud-init* or preseed configurations.
 
-Alternatively, install the *python-minimal* package:
+To enable Ansible management for a running system, use the  *bootstrap_ubuntu_ansible* playbook. This installs the Python 2 package using the *raw* method, so that it is available for you to run other Ansible commands and playbooks.
+
+Alternatively, manually install the *python-minimal* package:
 
     apt update && apt install python-minimal
-
-Regardless of how you install Python2, you also need to add an *ansible_python_interpreter* setting to the entries for these systems in your inventory:
-
-    ansible_python_interpreter=/usr/bin/python2.7
-
 
 ## Contact ##
 
