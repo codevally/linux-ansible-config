@@ -1,0 +1,15 @@
+---
+  - name: ensure target directory
+    file: path=/srv/apps state=directory owner={{ app_user_name }} group=backupadmins mode=2770
+    become: yes
+
+  - name: deploy code from Git repository
+    git:
+      repo: "git@bitbucket.org:stuartellis/server-backup.git"
+      accept_hostkey: yes
+      clone: yes
+      dest: "/srv/apps/server-backup"
+      recursive: no
+      umask: "007"
+      update: yes
+      version: "{{ app_version }}"

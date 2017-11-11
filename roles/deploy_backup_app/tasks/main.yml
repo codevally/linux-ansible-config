@@ -1,3 +1,4 @@
 ---
   - include: rvm_env.yml
+  - include: app_deploy.yml
 

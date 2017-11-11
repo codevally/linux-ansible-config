@@ -1,0 +1,8 @@
+---
+  - name: ensure group for Backup is present
+    group: name=backupadmins state=present
+    become: yes
+
+  - name: add Ansible user to Backup admin group
+    user: name="{{ ansible_user }}" groups=backupadmins append=yes
+    become: yes

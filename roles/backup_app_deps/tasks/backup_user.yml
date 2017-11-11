@@ -1,4 +1,10 @@
 ---
   - name: ensure user account for Backup
-    user: name="{{ app_user_name }}" comment="{{ app_user_full_name }}" uid="{{ app_user_id }}" shell=/bin/bash state=present
+    user: 
+      name: "{{ app_user_name }}"
+      comment: "{{ app_user_full_name }}"
+      groups: backupadmins
+      shell: /bin/bash
+      uid: "{{ app_user_id }}"
+      state: present
     become: yes

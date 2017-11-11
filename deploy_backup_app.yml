@@ -1,0 +1,9 @@
+---
+- name: Deploy Backup application
+  hosts: all
+  roles:
+    - deploy_backup_app
+  vars:
+    - app_user_name: backupapp
+    - app_gemset: backup_app
+    - app_version: HEAD

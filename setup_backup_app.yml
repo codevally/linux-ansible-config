@@ -10,9 +10,7 @@
         rvm1_install_flags: "--auto-dotfiles --user-install",
         rvm1_ruby_install_flags: "--autolibs=disable"
       }
-    - backup_app_deploy
   vars:
     - app_user_name: backupapp
     - app_user_full_name: "Backup application"
     - app_user_id: 1002
-    - app_gemset: backup_app
