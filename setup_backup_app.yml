@@ -1,0 +1,24 @@
+---
+- name: Set up Backup
+  hosts: all
+  roles:
+    - backup_app_deps
+    - { role: rvm_io.ruby,
+        tags: ruby,
+        rvm1_rubies: ["ruby-2.4.2"],
+        rvm1_user: "{{ app_user_name }}",
+        rvm1_install_flags: "--auto-dotfiles --autolibs=disable --user-install"
+      }
+    - backup_app_deploy
+  vars:
+    - app_user_name: backupapp
+    - app_user_full_name: "Backup application"
+    - app_user_id: 1002
+    - app_gemset: backup_app
+  vars_prompt:
+    - name: "app_user_password_sha512"
+      prompt: "Password for UNIX user account"
+      private: yes
+      encrypt: "sha512_crypt"
+      confirm: yes
+      salt_size: 8

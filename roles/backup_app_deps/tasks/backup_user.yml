@@ -1,0 +1,4 @@
+---
+  - name: ensure user account for Backup
+    user: name="{{ app_user_name }}" comment="{{ app_user_full_name }}" uid="{{ app_user_id }}" shell=/bin/bash password="{{ app_user_password_sha512 }}" state=present
+    become: yes
