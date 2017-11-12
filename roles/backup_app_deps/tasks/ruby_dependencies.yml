@@ -15,3 +15,5 @@
       - libgdbm-dev
       - libncurses5-dev
       - libffi-dev
+      - zlib1g-dev
+      - ruby-devel
